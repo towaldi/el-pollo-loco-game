@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Reset all
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Display & box model */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* ==========================================================================
+   Basic layout
+   ========================================================================== */
+
+canvas {
+    /* Display & box model*/
+    justify-content: center;
+    width: 720px;
+    height: 480px;
+    /* Other */
+    background-color: #000;
+    border-radius: 8px;
+}
