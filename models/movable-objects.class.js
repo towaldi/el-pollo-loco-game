@@ -5,12 +5,15 @@
  * Function
  */
 
-
 class MovableObject {
     posX;
     posY;
     img;
 
+    moveLeft() {
+        
+    }
+    
     moveRight() {
         console.log('moving right');
     }
