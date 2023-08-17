@@ -6,10 +6,10 @@
  */
 
 class MovableObject {
-    posX = 60;
-    posY = 30;
-    height = 120;
-    width = 60;
+    posX = 0;
+    posY = 80;
+    height = 60;
+    width = 50;
     img;
 
     loadImage(path) {
