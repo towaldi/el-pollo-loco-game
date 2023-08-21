@@ -28,10 +28,10 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         // Display objects
-        this.addToMap(this.character);
+        this.addObjectsToMap(this.backgroundObjects);
         this.addObjectsToMap(this.clouds);
         this.addObjectsToMap(this.enemies);
-        this.addObjectsToMap(this.backgroundObjects);
+        this.addToMap(this.character);
         // 'draw()' called again and again
         let self = this;
 	        requestAnimationFrame(function() {
