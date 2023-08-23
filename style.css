@@ -27,8 +27,8 @@ body {
 canvas {
     /* Display & box model*/
     justify-content: center;
-    width: 720px;
-    height: 480px;
+    /* width: 720px;
+    /* height: 480px;
     /* Other */
     background-color: #000;
     border-radius: 8px;
