@@ -21,6 +21,7 @@ class World {
     ctx;
     canvas;
     keyboard;
+    cameraPosX = 0;
 
 
     constructor(canvas, keyboard) {
@@ -34,11 +35,18 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // Move hole canvas
+        this.ctx.translate(this.cameraPosX, 0);
+
         // Display objects
         this.addObjectsToMap(this.backgroundObjects);
         this.addObjectsToMap(this.clouds);
         this.addObjectsToMap(this.enemies);
         this.addToMap(this.character);
+
+        // Move hole canvas reverse
+        this.ctx.translate(-this.cameraPosX, 0);
+
         // 'draw()' called again and again
         let self = this;
 	        requestAnimationFrame(function() {
