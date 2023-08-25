@@ -31,11 +31,13 @@ class Character extends MovableObject {
             // Mover right
             if (this.world.keyboard.right) {
                 this.posX += this.speed;
+                this.otherDirection = false;
             }
             
             // move left
             if (this.world.keyboard.left) {
                 this.posX -= this.speed;
+                this.otherDirection = true;
             }
 
 		}, 1000 / 24);
