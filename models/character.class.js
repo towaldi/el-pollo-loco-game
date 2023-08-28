@@ -15,6 +15,7 @@ class Character extends MovableObject {
     ];
 
     world;
+    walkingSound = new Audio('audio/walking_on_sand.mp3');
 
 
     constructor() {
@@ -28,16 +29,19 @@ class Character extends MovableObject {
     animate() {
 
         setInterval(() => {
+            this.walkingSound.pause();
             // Move right
             if (this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
                 this.posX += this.speed;
                 this.otherDirection = false;
+                this.walkingSound.play();
             }
             
             // move left
             if (this.world.keyboard.left && this.posX > 0) {
                 this.posX -= this.speed;
                 this.otherDirection = true;
+                this.walkingSound.play();
             }
 
             this.world.cameraPosX = -this.posX + 80;
