@@ -4,9 +4,7 @@ class World {
      */
 
     character = new Character();
-    enemies = level1.enemies;
-    clouds = level1.clouds;
-    backgroundObjects = level1.backgroundObjects;
+    level = level1;
     ctx;
     canvas;
     keyboard;
@@ -28,9 +26,9 @@ class World {
         this.ctx.translate(this.cameraPosX, 0);
 
         // Display objects
-        this.addObjectsToMap(this.backgroundObjects);
-        this.addObjectsToMap(this.clouds);
-        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.level.backgroundObjects);
+        this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
         // Move hole canvas reverse
@@ -38,7 +36,7 @@ class World {
 
         // 'draw()' called again and again
         let self = this;
-	        requestAnimationFrame(function() {
+	    requestAnimationFrame(function() {
 		    self.draw();
 	    });
     }

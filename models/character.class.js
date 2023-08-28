@@ -1,6 +1,6 @@
 class Character extends MovableObject {
 
-    posY = 160;
+    posY = 120;
     height = 320;
     width = 100;
     speed = 8;
@@ -28,19 +28,19 @@ class Character extends MovableObject {
     animate() {
 
         setInterval(() => {
-            // Mover right
-            if (this.world.keyboard.right) {
+            // Move right
+            if (this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
                 this.posX += this.speed;
                 this.otherDirection = false;
             }
             
             // move left
-            if (this.world.keyboard.left) {
+            if (this.world.keyboard.left && this.posX > 0) {
                 this.posX -= this.speed;
                 this.otherDirection = true;
             }
 
-            this.world.cameraPosX = -this.posX;
+            this.world.cameraPosX = -this.posX + 80;
 
 		}, 1000 / 24);
         
