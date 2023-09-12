@@ -45,15 +45,19 @@ class Character extends MovableObject {
             this.walkingSound.pause();
             // Move right
             if (this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
-                this.posX += this.speed;
+                this.moveRight();
                 this.otherDirection = false;
                 this.walkingSound.play();
             }
             // move left
             if (this.world.keyboard.left && this.posX > 0) {
-                this.posX -= this.speed;
+                this.moveLeft();
                 this.otherDirection = true;
                 this.walkingSound.play();
+            }
+            // Jump
+            if (this.world.keyboard.space && !this.isAboveGround()) {
+                this.jump();
             }
 
             this.world.cameraPosX = -this.posX + 80;
@@ -68,12 +72,7 @@ class Character extends MovableObject {
                 this.playAnimation(this.images_walking);
 
             }
-            
+
 		}, 1000 / 24);
 	}
-
-     
-    jump() {
-
-    }
 }
