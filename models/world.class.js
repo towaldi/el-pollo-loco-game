@@ -17,6 +17,22 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld();
+        this.checkCollissions();
+    }
+
+    setWorld() {
+        this.character.world = this;
+    }
+
+
+    checkCollissions() {
+        setInterval(() => {
+            this.level.enemies.forEach((enemy) => {
+                if (this.character.isColliding(enemy)) {
+                    console.log('Collision with character!', enemy);
+                }
+            });
+        }, 200);
     }
 
 
@@ -74,10 +90,5 @@ class World {
     flipImageBack(movableObject) {
         movableObject.posX = movableObject.posX * -1;
         this.ctx.restore();
-    }
-
-
-    setWorld() {
-        this.character.world = this;
     }
 }
