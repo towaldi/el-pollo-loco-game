@@ -50,24 +50,30 @@ class World {
 
 
     addToMap(movableObject) {
-    if (movableObject.otherDirection) {
-            this.ctx.save();
-            this.ctx.translate(movableObject.width, 0);
-            this.ctx.scale(-1, 1);
-            movableObject.posX = movableObject.posX * -1;
+        if (movableObject.otherDirection) {
+            this.flipImage(movableObject);
         }
-        this.ctx.drawImage(movableObject.img, movableObject.posX, movableObject.posY, movableObject.width, movableObject.height);
-        
-        this.ctx.beginPath();
-        this.ctx.lineWidth = '4';
-        this.ctx.strokeStyle = 'blue';
-        this.ctx.rect(movableObject.posX, movableObject.posY, movableObject.posX + movableObject.width, movableObject.posY + movableObject.height);
-        this.ctx.stroke();
+
+        movableObject.draw(this.ctx);
+        movableObject.drawFrame(this.ctx);
         
         if (movableObject.otherDirection) {
-            movableObject.posX = movableObject.posX * -1;
-            this.ctx.restore();
+            this.flipImageBack(movableObject);
         }
+    }
+
+
+    flipImage(movableObject) {
+        this.ctx.save();
+        this.ctx.translate(movableObject.width, 0);
+        this.ctx.scale(-1, 1);
+        movableObject.posX = movableObject.posX * -1;
+    }
+
+
+    flipImageBack(movableObject) {
+        movableObject.posX = movableObject.posX * -1;
+        this.ctx.restore();
     }
 
 

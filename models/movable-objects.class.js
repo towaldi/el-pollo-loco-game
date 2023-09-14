@@ -41,6 +41,20 @@ class MovableObject {
     }
 
 
+    draw(ctx) {
+        ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
+    }
+
+
+    drawFrame(ctx) {
+        ctx.beginPath();
+        ctx.lineWidth = '4';
+        ctx.strokeStyle = 'blue';
+        ctx.rect(this.posX, this.posY, this.width, this.height);
+        ctx.stroke();
+    }
+
+
     /**
      * 
      * @param {Array} arr - ['img/image1.png', 'img/image2.png', ...]
