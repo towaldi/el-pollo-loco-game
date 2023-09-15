@@ -5,15 +5,8 @@
  * Function
  */
 
-class MovableObject {
+class MovableObject extends DrawableObject {
 
-    posX = 0;
-    posY = 80;
-    height = 60;
-    width = 50;
-    img;
-    imageCache = {};
-    currentImage = 0;
     speed = 0.1;
     otherDirection = false;
     speedPosY = 0;
@@ -34,17 +27,6 @@ class MovableObject {
 
     isAboveGround() {
         return this.posY < 120;
-    }
-
-
-    loadImage(path) {
-        this.img = new Image();
-        this.img.src = path;
-    }
-
-
-    draw(ctx) {
-        ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
     }
 
 
@@ -88,20 +70,6 @@ class MovableObject {
 
     isDead() {
         return this.energy == 0;
-    }
-
-
-    /**
-     * 
-     * @param {Array} arr - ['img/image1.png', 'img/image2.png', ...]
-     */
-
-    loadImages(arr) {
-        arr.forEach((path) => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-        });
     }
 
 
