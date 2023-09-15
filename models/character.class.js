@@ -36,6 +36,12 @@ class Character extends MovableObject {
         'img/2_character_pepe/5_dead/D-57.png'
     ];
 
+    images_hurt = [
+        'img/2_character_pepe/4_hurt/H-41.png',
+        'img/2_character_pepe/4_hurt/H-42.png',
+        'img/2_character_pepe/4_hurt/H-43.png'
+    ];
+
     world;
     walkingSound = new Audio('audio/walking_on_sand.mp3');
 
@@ -45,13 +51,13 @@ class Character extends MovableObject {
         this.loadImages(this.images_walking);
         this.loadImages(this.images_jumping);
         this.loadImages(this.images_dead);
+        this.loadImages(this.images_hurt);
         this.applyGravity();
         this.animate();
     }
 
 
     animate() {
-
         setInterval(() => {
             this.walkingSound.pause();
             // Move right
@@ -78,6 +84,8 @@ class Character extends MovableObject {
 		setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.images_dead);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.images_hurt);
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.images_jumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
