@@ -9,6 +9,7 @@ class World {
     canvas;
     keyboard;
     cameraPosX = 0;
+    statusBar = new StatusBar();
 
 
     constructor(canvas, keyboard) {
@@ -43,6 +44,7 @@ class World {
         this.ctx.translate(this.cameraPosX, 0);
 
         // Display objects
+        this.addToMap(this.statusBar);
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
