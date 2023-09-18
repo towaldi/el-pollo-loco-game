@@ -32,6 +32,7 @@ class World {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
                     console.log('Collision with character!', this.character.energy);
+                    this.statusBar.setPercentage(this.character.energy);
                 }
             });
         }, 200);
@@ -43,14 +44,16 @@ class World {
         // Move hole canvas
         this.ctx.translate(this.cameraPosX, 0);
 
-        // Display objects
-        this.addToMap(this.statusBar);
         this.addObjectsToMap(this.level.backgroundObjects);
+
+        this.ctx.translate(-this.cameraPosX, 0);
+        this.addToMap(this.statusBar);
+        this.ctx.translate(this.cameraPosX, 0);
+
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
-        // Move hole canvas reverse
         this.ctx.translate(-this.cameraPosX, 0);
 
         // 'draw()' called again and again
