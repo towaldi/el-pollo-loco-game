@@ -10,6 +10,9 @@ class World {
     keyboard;
     cameraPosX = 0;
     statusBar = new StatusBar();
+    coinBar = new CoinBar();
+    bottlebar = new BottleBar();
+    endbossBar = new EndbossBar();
     throwableObjects = [];
 
 
@@ -63,6 +66,9 @@ class World {
 
         this.ctx.translate(-this.cameraPosX, 0);
         this.addToMap(this.statusBar);
+        this.addToMap(this.coinBar);
+        this.addToMap(this.bottlebar);
+        this.addToMap(this.endbossBar);
         this.ctx.translate(this.cameraPosX, 0);
 
         this.addToMap(this.character);
