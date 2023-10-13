@@ -8,13 +8,33 @@
     <title>El Pollo Loco</title>
 </head>
 <body onload="init()">
-    <!-- Headline -->
-    <h1>El Pollo Loco</h1>
+    <!-- Fullscreen -->
+    <div class="fullscreen">
+        <!-- Headline -->
+        <!-- <h1>El Pollo Loco</h1> -->
 
-    <!-- Canvas -->
-    <canvas id="canvas" class="canvas" width="720" height="480">
-
-    </canvas>
+        <!-- Canvas -->
+        <canvas id="canvas" class="canvas box-shadow-6 radius-8px" width="720" height="480"><!-- game content --></canvas>
+        <!-- Controls -->
+        <div class="controls box-shadow-6 radius-8px">
+            <div class="control">
+                <img src="./img/10_icons/arrow_left_24px.svg" alt="left arrow">
+                <p>Move left</p>
+            </div>
+            <div class="control">
+                <img src="./img/10_icons/arrow_right_24px.svg" alt="right arrow">
+                <p>Move right</p>
+            </div>
+            <div class="control">
+                <img src="./img/10_icons/space_bar_24px.svg" alt="jump arrow">
+                <p>Jump</p>
+            </div>
+            <div class="control">
+                <img src="./img/10_icons/keyboard_d_24px.svg" alt="salsa bottle">
+                <p>Throw</p>
+            </div>  
+        </div>
+    </div>
 
     <!-- Link js -->
     <script src="models/drawable-object.class.js"></script>

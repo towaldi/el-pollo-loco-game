@@ -14,9 +14,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 48px;
     width: 100vw;
     height: 100vh;
+    /* Other */
+    background-image: url('img/5_background/first_half_background_opacity_60.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'zabras', Arial, Helvetica, sans-serif;
 }
 
 
@@ -24,12 +29,83 @@ body {
    Basic layout
    ========================================================================== */
 
-canvas {
-    /* Display & box model*/
+/* Fullscreen
+   ========================================================================== */
+
+.fullscreen {
+    /* Display & box model */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* width: 720px;
-    /* height: 480px;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    height: 100%;
+}
+
+   
+/* Canvas
+   ========================================================================== */
+
+canvas {
+    /* Display & box model */
+    width: 720px;
+    height: 480px;
     /* Other */
-    background-color: #000;
+    border: 2px solid #994409;
+}
+
+
+/* Controls
+   ========================================================================== */
+
+.controls {
+    /* Display & box model */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 8px 16px;
+    width: 720px;
+    /* Other */
+    background-color: rgba(247, 192, 101, 0.6);
+    border: 2px solid #994409;
+}
+
+.control {
+    /* Display & box model */
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+
+/* Styles
+   ========================================================================== */
+.box-shadow-6 {
+    /* Other */
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.radius-8px {
+    /* Other */
     border-radius: 8px;
 }
+
+
+/* Fonts
+   ========================================================================== */
+
+p {
+    font-size: 28px;
+    color: #994409;
+}
+
+
+@font-face {
+    font-family: 'zabras';
+    src: url(./fonts/Zabars.ttf) format('truetype');
+}
+
