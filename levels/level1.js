@@ -20,6 +20,15 @@ const level1 = new Level(
     ],
 
     [
+        new Bottle(200, 100),
+        new Bottle(400, 100),
+        new Bottle(800, 100),
+        new Bottle(1200, 100),
+        new Bottle(1300, 100),
+        new Bottle(1800, 100),
+    ],
+
+    [
         // Next images (-1)
         new BackgroundObject('img/5_background/layers/air.png', -719),
         new BackgroundObject('img/5_background/layers/3_third_layer/2.png', -719),
