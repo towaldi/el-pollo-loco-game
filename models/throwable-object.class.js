@@ -15,4 +15,4 @@ class ThrowableObject extends MovableObject {
             this.posX += 10;
         }, 25)
     }
-}}
+}
