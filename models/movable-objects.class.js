@@ -87,4 +87,63 @@ class MovableObject extends DrawableObject {
 		this.img = this.imageCache[path];
 		this.currentImage++;
     }
+
+
+    /**
+     * Handles the animations for the chicken object.
+     */
+
+    chickenAnimation() {
+        this.movingLeft();
+        this.checkingDeath();
+    }
+
+
+    /**
+     * Sets up an interval that triggers the chicken to move to the left repeatedly.
+     */
+
+    movingLeft() {
+        this.walkingLeft = setInterval(() => {
+            this.moveLeft();
+            this.otherDirection = false;
+        }, 1000 / 60);
+    }
+
+    /**
+     * Checks if the character or object is dead.
+     * @returns {boolean} Returns true if the energy of the character or object is equal to 0, false otherwise.
+     */
+
+    isDead() {
+        return this.energy == 0;
+    }
+
+
+    /**
+     * Sets up an interval that checks if the chicken is dead.
+     */
+
+    checkingDeath() {
+        this.death = setInterval(() => {
+            if (this.isDead()) {
+                this.playAnimation(this.images_dead);
+                this.deadChicken();
+            } else {
+                this.playAnimation(this.images_walking);
+            }
+        }, 150);
+    }
+
+
+    /**
+     * Called when the chicken is dead. It clears the intervals for walking left and checking death after a delay of 100 milliseconds.
+     */
+
+    deadChicken() {
+        setTimeout(() => {
+            clearInterval(this.walkingLeft);
+            clearInterval(this.death);
+        }, 100);
+    }
 }

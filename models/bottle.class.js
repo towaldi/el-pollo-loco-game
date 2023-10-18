@@ -13,7 +13,6 @@ class Bottle extends MovableObject {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png');
         this.loadImages(this.images_bottle);
         this.posX += Math.random() * 2000;
-        // this.posY += Math.random() * 180;
         this.collectablesAnimation();
     }
 
