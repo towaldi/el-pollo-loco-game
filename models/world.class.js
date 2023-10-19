@@ -14,6 +14,7 @@ class World {
     bottlebar = new BottleBar();
     endbossBar = new EndbossBar();
     throwableObjects = [];
+    bottleStrikesEndboss = false;
 
 
     constructor(canvas, keyboard) {
@@ -25,18 +26,42 @@ class World {
         this.run();
     }
 
+
+    /**
+     * Links the Character and World class.
+     */
+
     setWorld() {
         this.character.world = this;
     }
 
 
+    /**
+     * Checks for collisions and game updates at a set interval.
+     */
+
     run() {
         setInterval(() => {
             this.checkCollision();
-            this.checkThorwObject();
+            this.checkThrowObject();
         }, 200);
     }
 
+
+    /**
+     * Checks for thrown bottles at a set interval.
+     */
+
+    runBottles() {
+        setStoppableInterval(() => {
+            this.checkThrowObjects();
+        }, 700);
+    }
+
+
+    /**
+     * Checks for collisions between the character and chickens.
+     */
 
     checkCollision() {
         this.level.enemies.forEach((enemy) => {
@@ -49,7 +74,50 @@ class World {
     }
 
 
-    checkThorwObject() {
+    /**
+     * Kills a chicken enemy.
+     * @param {object} enemy - The enemy to be killed.
+     */
+
+    killChicken(enemy) {
+        this.character.speedY = 30;
+        this.chickenIsDead(enemy);
+
+        setTimeout(() => {
+            this.deleteEnemy(enemy);
+        }, 500);
+    }
+
+
+    /**
+     * Sets the enemy's energy to 0 and plays a death sound.
+     * @param {object} enemy - The enemy that is dying.
+     */
+
+    chickenIsDead() {
+        enemy.energy = 0;
+        // ChickenDeadSound.play();
+    }
+
+
+    /**
+     * Removes the killed enemy from the enemy array.
+     * @param {object} enemy - The enemy to be removed.
+     */
+
+    deleteEnemy(enemy) {
+        let i = this.level.enemies.indexOf(enemy);
+        if (i > -1) {
+            this.level.enemies.splice(i, 1);
+            checkKilledChciken();
+        }
+    }
+
+
+    // --> to continue!
+
+
+    checkThrowObject() {
        if (this.keyboard.d) {
             let bottle = new ThrowableObject(this.character.posX + 100, this.character.posY + 100);
             this.throwableObjects.push(bottle)
