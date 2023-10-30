@@ -15,6 +15,7 @@ class World {
     endbossBar = new EndbossBar();
     throwableObjects = [];
     bottleStrikesEndboss = false;
+    characterNotVulnerable = false;
 
 
     constructor(canvas, keyboard) {
@@ -28,7 +29,7 @@ class World {
 
 
     /**
-     * Links the Character and World class.
+     * Links the Character and World class
      */
 
     setWorld() {
@@ -37,7 +38,7 @@ class World {
 
 
     /**
-     * Checks for collisions and game updates at a set interval.
+     * Checks for collisions and game updates at a set interval
      */
 
     run() {
@@ -49,7 +50,7 @@ class World {
 
 
     /**
-     * Checks for thrown bottles at a set interval.
+     * Checks for thrown bottles at a set interval
      */
 
     runBottles() {
@@ -60,7 +61,7 @@ class World {
 
 
     /**
-     * Checks for collisions between the character and chickens.
+     * Checks for collisions between the character and chickens
      */
 
     checkCollision() {
@@ -76,7 +77,7 @@ class World {
 
     /**
      * Kills a chicken enemy.
-     * @param {object} enemy - The enemy to be killed.
+     * @param {object} enemy - The enemy to be killed
      */
 
     killChicken(enemy) {
@@ -90,8 +91,8 @@ class World {
 
 
     /**
-     * Sets the enemy's energy to 0 and plays a death sound.
-     * @param {object} enemy - The enemy that is dying.
+     * Sets the enemy's energy to 0 and plays a death sound
+     * @param {object} enemy - The enemy that is dying
      */
 
     chickenIsDead() {
@@ -101,8 +102,8 @@ class World {
 
 
     /**
-     * Removes the killed enemy from the enemy array.
-     * @param {object} enemy - The enemy to be removed.
+     * Removes the killed enemy from the enemy array
+     * @param {object} enemy - The enemy to be removed
      */
 
     deleteEnemy(enemy) {
@@ -114,7 +115,59 @@ class World {
     }
 
 
-    // --> to continue!
+    /**
+     * Checks collision between character and end boss
+     */
+
+    checkCollisionWithEndboss() {
+        this.level.endboss.forEach((endboss) => {
+            if (this.character.isColliding(enboss) && !this.characterNotVulnerable) {
+                this.character.hittedByEndboss();
+                this.statusBar.setPercentage(this.character.energy);
+                this.characterInvulnerable();
+            }
+        });
+    }
+
+
+    /**
+     * Character is temporarily invulnerable
+     */
+
+    characterNotVulnerable() {
+        this.characterNotVulnerable = true;
+        setTimeout(() => {
+            this.characterNotVulnerable = false;
+        }, 1000);
+    }
+
+
+    /**
+     * Checks if bottle collides with end boss
+     */
+
+    bottleCollidesWithEndboss() {
+        this.throwableObjects.forEach((bottle) => {
+            this.level.endboss.forEach((endboss) => {
+                if (bottle.isColliding(endboss) && !this.endbossNotVulnerable) {
+                    this.bottleStrikesEndboss = true;
+                    this.endbossWasHit(endboss);
+                }
+            });
+        });
+        this.endbossBar.setPercentage(world.level.endboss[0].energy);
+    }
+
+
+    /**
+     * Indicates that the end boss has been or was hit + makes it temporarily invulnerable
+     * @param {object} endboss -> end boss has been hit
+     */
+
+    endbossWasHit(endboss) {
+        endboss.hittedBy
+    }
+    
 
 
     checkThrowObject() {

@@ -13,7 +13,17 @@ class MovableObject extends DrawableObject {
     acceleration = 2.5;
     energy = 100;
     lastHit = 0;
+    offset = {
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
+    }
     
+
+    /**
+     * Applies gravity to the bottle object
+     */
 
     applyGravity() {
         setInterval(() => {
@@ -23,10 +33,32 @@ class MovableObject extends DrawableObject {
             }
         }, 1000 / 25);
     }
+    
 
+    /**
+     * Applies gravity to the character
+     * -> Updating the vertical position based on current speed and acceleration
+     */
+
+    applyGravityCharacter() {
+        setInterval(() => {
+            if (this.isAboveGround() || this.speedPosY > 0) {
+                this.posY -= this.speedPosY;
+                this.speedPosY -= this.acceleration;
+            } else {
+                this.posY = 120;
+            }
+        }, 1000 / 25);
+    }
+
+
+    /**
+     * Checks if object is above ground
+     * @returns {boolean} -> 'true' above ground, 'false' under ground
+     */
 
     isAboveGround() {
-        if (this instanceof ThrowableObject) {
+        if (this instanceof ThrowableObject && this.posY < 300) {
             return true;
         } else {
             return this.posY < 120;
@@ -34,23 +66,101 @@ class MovableObject extends DrawableObject {
     }
 
 
+    // -> playAnimation() missing?!
+
+    /**
+     * Moves the object to the right 
+     * -> updating x coordinate based on speed property
+     */
+
+    moveRight() {
+        this.posX += this.speed;
+        // -> other direction missing
+    }
+
+
+    /**
+     * Moves the object to the left
+     * -> updating x coordinate based on speed property
+     */
+
+    moveLeft() {
+        this.posX -= this.speed;
+        // -> other direction missing
+    }
+
+
+    /**
+     * Checks if object collides with another movable object
+     * @param {MovableObject} movableObject -> movable object
+     * @returns {boolean} -> 'true
+     */
+
+    isColliding(movableObject) {
+        return (
+            this.posX + this.width - this.offset.right > movableObject.posX + movableObject.offset.left &&
+            this.posY + this.height - this.offset.bottom > movableObject.posY + movableObject.offset.top &&
+            this.posX + this.offset.left < movableObject.posX + movableObject.width - movableObject.offset.right &&
+            this.posY + this.offset.top < movableObject.posY + movableObject.height - movableObject.offset.bottom
+        );
+    }
+
+    /* Old version
     isColliding(movableObject) { 
         return  this.posX + this.width > movableObject.posX &&
                 this.posY + this.height > movableObject.posY &&
                 this.posX < movableObject.posX &&
                 this.posY < movableObject.posY + movableObject.height;
     }
+    */
 
+
+    /**
+     * Decreases the characters energy by 5 
+     */
 
     hit() {
 		this.energy -= 5;
 		if (this.energy < 0) {
 			this.energy = 0;
 		} else {
-            this.lasHit = new Date().getTime();
+            this.lastHit = new Date().getTime();
         }
 	}
 
+
+    /**
+     * Decreases the characters energy by 10 when being hit by endboss
+     */
+
+    hittedByEndboss() {
+        this.energy -= 10;
+		if (this.energy < 0) {
+			this.energy = 0;
+		} else {
+            this.lastHit = new Date().getTime();
+        }
+    }
+
+
+    /**
+     * Decreases the endbosses energy by 10 when hitted by bottle
+     */
+
+    hittedByBottle() {
+        this.energy -= 10;
+		if (this.energy < 0) {
+			this.energy = 0;
+		} else {
+            this.lastHit = new Date().getTime();
+        }
+    }
+
+
+    /**
+     * Checks if the character is hurt (state)
+     * @returns {boolean} -> 'true' = hurt, 'false' = not hurt
+     */
 
     isHurt() {
         // Difference in ms
@@ -61,31 +171,27 @@ class MovableObject extends DrawableObject {
     }
 
 
+    /**
+     * Checks if the endboss is hurt (state)
+     * @returns {boolean} -> 'true' = hurt, 'false' = not hurt
+     */
+    
+    endbossIsHurt() {
+        // Difference in ms
+        let timepassed = new Date().getTime() - this.lastHit;
+        // In seconds
+        timepassed = timepassed / 1000;
+        return timepassed < 1;
+    }
+
+
+    /**
+     * Checks if objects (character, etc.) are dead
+     * @returns {boolean} -> 'true' = dead, 'false' = not dead
+     */
+
     isDead() {
         return this.energy == 0;
-    }
-
-
-    moveLeft() {
-        this.posX -= this.speed;
-    }
-
-
-    moveRight() {
-        this.posX += this.speed;
-    }
-
-
-    jump() {
-        this.speedPosY = 30;
-    } 
-
-
-    playAnimation(images) {
-        let i = this.currentImage % images.length; 
-		let path = images[i];
-		this.img = this.imageCache[path];
-		this.currentImage++;
     }
 
 
@@ -110,13 +216,21 @@ class MovableObject extends DrawableObject {
         }, 1000 / 60);
     }
 
-    /**
-     * Checks if the character or object is dead.
-     * @returns {boolean} Returns true if the energy of the character or object is equal to 0, false otherwise.
-     */
 
-    isDead() {
-        return this.energy == 0;
+    /**
+     * Outsource funtion ?
+     */
+    
+    jump() {
+        this.speedPosY = 30;
+    } 
+
+
+    playAnimation(images) {
+        let i = this.currentImage % images.length; 
+		let path = images[i];
+		this.img = this.imageCache[path];
+		this.currentImage++;
     }
 
 
