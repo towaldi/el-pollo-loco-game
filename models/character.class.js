@@ -1,3 +1,9 @@
+/**
+ * Character class that extends 'MovableObject'
+ * -> Character moves around, jumps and interacts with the other game objects
+ * @extends MovableObject
+ */
+
 class Character extends MovableObject {
 
     posY = 60;
@@ -46,6 +52,9 @@ class Character extends MovableObject {
     walkingSound = new Audio('audio/walking_on_sand.mp3');
 
 
+    /**
+     * 
+     */
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.images_walking);
