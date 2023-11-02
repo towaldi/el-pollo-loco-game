@@ -53,8 +53,11 @@ class Character extends MovableObject {
 
 
     /**
-     * 
+     * Creates new 'Chracter' instance
+     * -> Loads image(s) of character in various states (walking. jumping, etc.)
+     * -> Applies gravity to the character + starts animation loop for movement
      */
+
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.images_walking);
@@ -65,6 +68,12 @@ class Character extends MovableObject {
         this.animate();
     }
 
+
+    /**
+     * Controls character movement + animation based on current state
+     * -> Updates character's position + applies vertical speed to jumoping
+     * -> Adjusts camera position -> focus on character with a slight offset
+     */
 
     animate() {
         setInterval(() => {
@@ -89,6 +98,13 @@ class Character extends MovableObject {
             this.world.cameraPosX = -this.posX + 80;
 
 		}, 1000 / 24);
+
+
+        /**
+         * Is used to control the character's animation based on it's current state
+         * -> Checks if character is in various states like dead, hurt, jumping, walking, standing or idle state -> triggers corresponding animation
+         * -> Interval 100ms -> smooth anaimations
+         */
         
 		setInterval(() => {
             if (this.isDead()) {
@@ -103,4 +119,40 @@ class Character extends MovableObject {
             }
 		}, 1000 / 24);
 	}
+
+
+    /**
+         * Animation for character's death
+         * -> Triggers 'characteDeadSound'
+         * -> Stops game sound
+         * -> Calls 'gameLost' function
+         * -> Stops the game
+         */
+
+    deathAnimation() {
+        this.playAnimation(this.images_dead);
+        characterDeadSound.play();
+        setGameSoundsToNull();
+        gameLost();
+        this.stopGameGeneral();
+    }
+
+
+    /**
+     * Sets timeout to stop game + reset variable 'arrivedEndboss' = false (after short delay)
+     */
+
+    stopGameGeneral() {
+        setTimeout(() => {
+            this.stopGame();
+            arrivedEndboss = false;
+        },  700);
+    }
+
+
+    /**
+     * Hurt animation for character
+     * -> Plays hurt sound
+     * -> Resets 
+     */
 }
