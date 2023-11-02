@@ -1,24 +1,24 @@
-characterJumpSound = new Audio();
-characterDeadSound = new Audio();
-characterHurtSound = new Audio();
+characterJumpSound = new Audio('./audio/character_jump_sound.mp3');
+characterDeadSound = new Audio('./audio/character_dead_sound.mp3');
+characterHurtSound = new Audio('./audio/character_jump_sound.mp3');
 
-chickenDeadSound = new Audio();
+chickenDeadSound = new Audio('./audio/chicken_dead_sound.mp3');
 
-throwBottleSound = new Audio();
-collectBottleSound = new Audio();
-bottleSplashSound = new Audio();
+throwBottleSound = new Audio('./audio/throw_bottle_sound.mp3');
+collectBottleSound = new Audio('./audio/collect_bottle_sound.mp3');
+bottleSplashSound = new Audio('./audio/bottle_splash_sound.mp3');
 
-collectCoinSound = new Audio();
+collectCoinSound = new Audio('./audio/collect_coin_sound.mp3');
 
-endbossHurtSound = new Audio();
-endbossAttentionSound = new Audio();
-endbossAttackSound = new Audio();
+endbossHurtSound = new Audio('./audio/chicken_dead_sound.mp3');
+endbossAttentionSound = new Audio('./audio/chicken_dead_sound.mp3');
+endbossAttackSound = new Audio('./audio/chicken_dead_sound.mp3');
 
-gameBackgroundMusic = new Audio();
-gameEndbossMusic = new Audio();
+gameBackgroundMusic = new Audio('./audio/game_bgr_sound.mp3');
+gameEndbossMusic = new Audio('./audio/endboss_attention_sound.mp3');
 
-gameWonSound = new Audio();
-gameLostSound = new Audio();
+gameWonSound = new Audio('./audio/game_won_sound.mp3');
+gameLostSound = new Audio('./audio/game_won_sound.mp3');
 
 
 let gameMusicOff = false;
