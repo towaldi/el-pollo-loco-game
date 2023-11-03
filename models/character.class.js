@@ -10,6 +10,7 @@ class Character extends MovableObject {
     height = 320;
     width = 100;
     speed = 8;
+    longIdleState = 0;
 
     images_walking = [
         'img/2_character_pepe/2_walk/W-21.png',
@@ -151,8 +152,79 @@ class Character extends MovableObject {
 
 
     /**
-     * Hurt animation for character
+     * Hurt animation of character
      * -> Plays hurt sound
-     * -> Resets 
+     * -> Resets 'longIdleState'
      */
+
+    hurtAnimation() {
+        this.playAnimation(this.images_hurt);
+        characterHurtSound.play();
+        this.longIdleState = 0;
+    }
+
+
+    /**
+     * Jump animation of character
+     * -> Plays jump sound
+     * -> Resets 'longIdleState'
+     */
+
+    jumpAnimation() {
+        this.playAnimation(this.images_jumping);
+        characterJumpSound.play();
+        this.longIdleState = 0;
+    }
+
+
+    /**
+     * Checks if character is moving to left or right based on the keyboard input
+     * @returns {boolean} -> 'true' = character is moving, 'false' = not moving
+     */
+
+    isWalking() {
+        return this.world.keyboard.right || this.world.keyboard.left;
+    }
+
+
+    /**
+     * Plays walking animation
+     * -> Resets 'longIdleState'
+     */
+
+    walkingAnimation() {
+        this.playAnimation(this.images_walking);
+        this.longIdleState = 0;
+    }
+
+
+    /**
+     * Checks if character is standing -> comparing 'longIdleState' against threshold
+     * @returns {boolean} -> 'true' = character is standing, 'false' = not standing
+     */
+
+    isStanding() {
+        return this.longIdleState < 30;
+    }
+
+
+    /**
+     * Plays idle animation of the character
+     * -> Increase counter of 'longIdleState' to track the duration of the state
+     */
+
+    idleAnimation() {
+        this.playAnimation(this.images_idle);
+        this.longIdleState++;
+    }
+
+
+    /**
+     * Plays long idle animation of the character
+     * -> Used when character remains idle for an extende period of time
+     */
+
+    longIdleAnimation() {
+        this.playAnimation(this.images_long_idle);
+    }
 }
