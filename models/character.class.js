@@ -49,8 +49,35 @@ class Character extends MovableObject {
         'img/2_character_pepe/4_hurt/H-43.png'
     ];
 
+    images_idle = [
+        'img/2_character_pepe/1_idle/idle/I-1.png',
+        'img/2_character_pepe/1_idle/idle/I-2.png',
+        'img/2_character_pepe/1_idle/idle/I-3.png',
+        'img/2_character_pepe/1_idle/idle/I-4.png',
+        'img/2_character_pepe/1_idle/idle/I-5.png',
+        'img/2_character_pepe/1_idle/idle/I-6.png',
+        'img/2_character_pepe/1_idle/idle/I-7.png',
+        'img/2_character_pepe/1_idle/idle/I-8.png',
+        'img/2_character_pepe/1_idle/idle/I-9.png',
+        'img/2_character_pepe/1_idle/idle/I-10.png',
+    ];
+
+    images_long_idle = [
+        'img/2_character_pepe/1_idle/long_idle/I-11.png',
+        'img/2_character_pepe/1_idle/long_idle/I-12.png',
+        'img/2_character_pepe/1_idle/long_idle/I-13.png',
+        'img/2_character_pepe/1_idle/long_idle/I-14.png',
+        'img/2_character_pepe/1_idle/long_idle/I-15.png',
+        'img/2_character_pepe/1_idle/long_idle/I-16.png',
+        'img/2_character_pepe/1_idle/long_idle/I-17.png',
+        'img/2_character_pepe/1_idle/long_idle/I-18.png',
+        'img/2_character_pepe/1_idle/long_idle/I-19.png',
+        'img/2_character_pepe/1_idle/long_idle/I-20.png',
+    ];
+
     world;
     walkingSound = new Audio('audio/walking_on_sand.mp3');
+    //speed = 6;
 
 
     /**
@@ -65,6 +92,8 @@ class Character extends MovableObject {
         this.loadImages(this.images_jumping);
         this.loadImages(this.images_dead);
         this.loadImages(this.images_hurt);
+        this.loadImages(this.images_idle);
+        this.loadImages(this.images_long_idle);
         this.applyGravity();
         this.animate();
     }
@@ -78,24 +107,18 @@ class Character extends MovableObject {
 
     animate() {
         setInterval(() => {
-            this.walkingSound.pause();
             // Move right
             if (this.world && this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
                 this.moveRight();
-                this.otherDirection = false;
-                this.walkingSound.play();
             }
             // move left
             if (this.world && this.world.keyboard.left && this.posX > 0) {
                 this.moveLeft();
-                this.otherDirection = true;
-                this.walkingSound.play();
             }
             // Jump
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
                 this.jump();
             }
-
             this.world.cameraPosX = -this.posX + 80;
 
 		}, 1000 / 24);
@@ -109,14 +132,17 @@ class Character extends MovableObject {
         
 		setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.images_dead);
+                this.deathAnimation();
             } else if (this.isHurt()) {
-                this.playAnimation(this.images_hurt);
+                this.hurtAnimation();
             } else if (this.isAboveGround()) {
-                this.playAnimation(this.images_jumping);
-            } else if (this.world.keyboard.right || this.world.keyboard.left) {
-                // Walk animation
-                this.playAnimation(this.images_walking);
+                this.jumpAnimation();
+            } else if (isWalking()) {
+                this.walkingAnimation();
+            } else if (isStanding()) {
+                this.idleAnimation();
+            } else {
+                this.longIdleAnimation();
             }
 		}, 1000 / 24);
 	}
