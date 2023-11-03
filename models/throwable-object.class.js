@@ -1,5 +1,9 @@
-class ThrowableObject extends MovableObject {
+/**
+ * ThrowableObject class represents the bottle object that the character can trhow
+ * @extends MovableObject
+ */
 
+class ThrowableObject extends MovableObject {
 
     images_throwing_bottle = [
         'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
@@ -7,7 +11,6 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png'
     ];
-
 
     images_splash_bottle = [
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png',
@@ -19,19 +22,27 @@ class ThrowableObject extends MovableObject {
     ];
 
 
-    constructor(posX, posY) {
+    /**
+     * Initializes a new throwable object
+     * @param {number} posX -> Initial x-coordinate ot the throwable object
+     * @param {number} posY -> Initial y-coordinate ot the throwable object
+     * @param {boolean} characterDirection -> Direction character is facing
+     */
+
+    constructor(posX, posY, characterDirection) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
         this.loadImages(this.images_throwing_bottle);
         this.loadImages(this.images_splash_bottle);
         this.posX = posX;
         this.posY = posY;
+        this.characterDirection = characterDirection;
         this.throw();
         this.bottleAnimation();
     }
 
 
     /**
-     * Initiates the throwing action for the throwable object.
+     * Initiates the throwing action for the throwable object
      */
 
     throw() {
@@ -40,6 +51,23 @@ class ThrowableObject extends MovableObject {
         setInterval(() => {
             this.posX += 10;
         }, 25)
+    }
+
+
+    /**
+     * Determines the horizontal direction of the throw based on the character's direction
+     */
+    throwingLeftOrRight() {
+        throwBottleSound.play();
+        this.throwingInterval = setInterval(() => {
+            if (this.characterDirection) {
+                this.posX -= 10;
+            } else {
+                this.posX += 10;
+            }
+        }, 24);
+
+        setTimeout(() => clearInterval(this.throwingInterval), 1000);
     }
 
 
@@ -54,7 +82,7 @@ class ThrowableObject extends MovableObject {
 
 
     /**
-     * Determines whether to play the splash animation or the throwing animation based on the object's position and collision state.
+     * Determines whether to play the splash animation or the throwing animation based on the object's position and collision state
      */
 
     splashOrThrowingAnimation() {
@@ -69,7 +97,7 @@ class ThrowableObject extends MovableObject {
 
 
     /**
-     * Updates the world.bottleStrikesEndboss variable after a delay.
+     * Updates the world.bottleStrikesEndboss variable after a delay
      */
 
     updateBottleStrikesEndboss() {
@@ -80,7 +108,7 @@ class ThrowableObject extends MovableObject {
 
 
     /**
-     * Plays the splash animation and adjusts the throwable object's properties accordingly.
+     * Plays the splash animation and adjusts the throwable object's properties accordingly
      */
 
     playSplashAnimation() {
@@ -94,7 +122,7 @@ class ThrowableObject extends MovableObject {
 
 
     /**
-     * Simulates a splash effect by continuously increasing the throwable object's y position.
+     * Simulates a splash effect by continuously increasing the throwable object's y position
      */
     
     splashEffect() {
