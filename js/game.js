@@ -5,6 +5,8 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let arrivedEndboss = false;
+let intervalIds = [];
 
 /**
  * Function init() get's executed when page is loaded
@@ -19,6 +21,46 @@ function init() {
 
     console.log('My character is', world.character);
 }
+
+/**
+ * Stops all intervals that are contolling the game
+ */
+
+function stopAllIntervals() {
+	intervalIds.forEach(clearInterval);
+}
+
+
+/**
+ * Pauses background music after game was won or lost
+ */
+
+function stopBackgroundMusic() {
+	gameBackgroundMusic.pause();
+	gameEndbossMusic.pause();
+}
+
+
+/**
+ * Gets executed if character's energy = 0 -> game is lost
+ */
+
+function gameLost() {
+	stopBackgroundMusic();
+	showGamLostContainer();
+}
+
+
+
+/**
+ * Gets executed if endboss's energy = 0 -> game is won
+ */
+
+function gameWon() {
+        stopBackgroundMusic();
+		showGameWonContainer();
+}
+
 
 
 window.addEventListener("keydown", (event) => {
