@@ -58,4 +58,13 @@ constructor() {
                 this.character.hit();
                 console.log('Collision with character!', this.character.energy);
                 this.statusBar.setPercentage(this.character.energy);
-                */
+*/
+
+/** old game.js function
+function init() {
+    canvas = document.getElementById('canvas');
+    world = new World(canvas, keyboard);
+
+    console.log('My character is', world.character);
+}
+ */
