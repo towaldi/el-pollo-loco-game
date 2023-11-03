@@ -149,12 +149,12 @@ class Character extends MovableObject {
 
 
     /**
-         * Animation for character's death
-         * -> Triggers 'characteDeadSound'
-         * -> Stops game sound
-         * -> Calls 'gameLost' function
-         * -> Stops the game
-         */
+     * Animation for character's death
+     * -> Triggers 'characteDeadSound'
+     * -> Stops game sound
+     * -> Calls 'gameLost' function
+     * -> Stops the game
+     */
 
     deathAnimation() {
         this.playAnimation(this.images_dead);
