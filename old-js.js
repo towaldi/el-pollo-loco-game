@@ -39,3 +39,17 @@ jump() {
     this.speedPosY = 30;
 }
 */
+
+
+/* bottlebar - constuctor
+
+constructor() {
+        super();
+        this.loadImages(this.statusbar_images);
+        this.setPercentage(0);
+        this.posX = 20;
+        this.posY = 55;
+        this.width = 180;
+        this.height = 50;
+    }
+*/
