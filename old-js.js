@@ -53,3 +53,9 @@ constructor() {
         this.height = 50;
     }
 */
+
+/* checkColliding() old:
+                this.character.hit();
+                console.log('Collision with character!', this.character.energy);
+                this.statusBar.setPercentage(this.character.energy);
+                */
