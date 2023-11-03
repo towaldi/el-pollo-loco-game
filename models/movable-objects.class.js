@@ -1,8 +1,6 @@
 /**
- * Template
- * 
- * Variables: osition x, position y and image
- * Function
+ * MovableObject class represents the movable objects
+ * @extends DrawableObject
  */
 
 class MovableObject extends DrawableObject {
@@ -66,7 +64,18 @@ class MovableObject extends DrawableObject {
     }
 
 
-    // -> playAnimation() missing?!
+    /**
+     * Plays animation by upodating the image of the object
+     * @param {Array} images -> Array of image paths
+     */
+
+    playAnimation(images) {
+        let i = this.currentImage % images.length; 
+		let path = images[i];
+		this.img = this.imageCache[path];
+		this.currentImage++;
+    }
+
 
     /**
      * Moves the object to the right 
@@ -75,7 +84,7 @@ class MovableObject extends DrawableObject {
 
     moveRight() {
         this.posX += this.speed;
-        // -> other direction missing
+        this.otherDirection = false;
     }
 
 
@@ -86,7 +95,7 @@ class MovableObject extends DrawableObject {
 
     moveLeft() {
         this.posX -= this.speed;
-        // -> other direction missing
+        this.otherDirection = true;
     }
 
 
@@ -104,15 +113,6 @@ class MovableObject extends DrawableObject {
             this.posY + this.offset.top < movableObject.posY + movableObject.height - movableObject.offset.bottom
         );
     }
-
-    /* Old version
-    isColliding(movableObject) { 
-        return  this.posX + this.width > movableObject.posX &&
-                this.posY + this.height > movableObject.posY &&
-                this.posX < movableObject.posX &&
-                this.posY < movableObject.posY + movableObject.height;
-    }
-    */
 
 
     /**
@@ -214,23 +214,6 @@ class MovableObject extends DrawableObject {
             this.moveLeft();
             this.otherDirection = false;
         }, 1000 / 60);
-    }
-
-
-    /**
-     * Outsource funtion ?
-     */
-    
-    jump() {
-        this.speedPosY = 30;
-    } 
-
-
-    playAnimation(images) {
-        let i = this.currentImage % images.length; 
-		let path = images[i];
-		this.img = this.imageCache[path];
-		this.currentImage++;
     }
 
 

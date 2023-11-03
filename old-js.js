@@ -1,3 +1,4 @@
+/*
 setInterval(() => {
     this.walkingSound.pause();
     // Move right
@@ -20,3 +21,21 @@ setInterval(() => {
     this.world.cameraPosX = -this.posX + 80;
 
 }, 1000 / 24);
+*/
+
+
+/* Old version
+    isColliding(movableObject) { 
+        return  this.posX + this.width > movableObject.posX &&
+                this.posY + this.height > movableObject.posY &&
+                this.posX < movableObject.posX &&
+                this.posY < movableObject.posY + movableObject.height;
+    }
+*/
+
+
+/*   
+jump() {
+    this.speedPosY = 30;
+}
+*/
