@@ -63,6 +63,7 @@ canvas {
     /* Display & box model */
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 24px;
     padding: 8px 16px;
@@ -92,6 +93,18 @@ canvas {
 .radius-8px {
     /* Other */
     border-radius: 8px;
+}
+
+.row-24px {
+    /* Display & box model */
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.d-none {
+    /* Other */
+    display: none;
 }
 
 
