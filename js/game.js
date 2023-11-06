@@ -20,9 +20,9 @@ let killedChickenInMenu = 0;
  */
 
 function startGame() {
-	switchContainer('start-screen-container', 'loading-animation-container');
+	switchContainer('start-screen', 'canvas');
 	setTimeout(() => {
-		switchContainer('loading-animation-container', 'canvas-container');
+		switchContainer('start-screen', 'canvas');
         setEndgameStatisticToNull();
         gameSounds();
         initLevel();
@@ -300,4 +300,13 @@ window.addEventListener("keyup", (event) => {
 	}
 });
 
+
+/**
+ * Mobile buttons -> touch events
+ */
+
+
+/**
+ * 
+ */
 

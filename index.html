@@ -8,15 +8,37 @@
     <title>El Pollo Loco</title>
 </head>
 <body onload="startGame()">
+    <!-- Mobile screen -->
+    <div class="mobile-screen">
+        <img class="icon-48x48" src="./img/10_icons/screen_rotation_24px.svg" alt="screen rotation">
+        <h4>Achtung</h4>
+        <p>Um El-Pollo-Loco auf einem mobilen Gerät spielen zu können, bitte in das Querformat wechseln!</p>
+    </div>
+
     <!-- Fullscreen -->
     <div class="fullscreen">
-        <!-- Headline -->
-        <!-- <h1>El Pollo Loco</h1> -->
+        <!-- Start screen -->
+        <div class="start-screen">
+            <button class="btn">Start</button>
+        </div>
 
         <!-- Canvas -->
-        <canvas id="canvas" class="canvas box-shadow-6 radius-8px" width="720" height="480"><!-- game content --></canvas>
+        <canvas id="canvas" class="canvas box-shadow-6 d-none" width="720" height="480">
+            <!-- Game content -->
+            <!-- Sound buttons -->
+            <img onclick="soundOff()" class="" src="./img/10_icons/volume_off_24px.svg" alt="volume on">
+            <img onclick="soundOn()" class="d-none" src="./img/10_icons/volume_up_24px.svg" alt="volume on">
+
+            <!-- Mobile buttons -->
+            <div class="mobile-buttons">
+                <img src="./img/10_icons/arrow_left_24px.svg" alt="left arrow">
+                <img src="./img/10_icons/arrow_right_24px.svg" alt="right arrow">
+                <img src="./img/10_icons/keyboard_d_24px.svg" alt="salsa bottle">
+            </div>
+        </canvas>
+
         <!-- Controls -->
-        <div class="controls box-shadow-6 radius-8px">
+        <div class="controls box-shadow-6">
             <div class="row-24px">
                 <div class="control">
                     <img src="./img/10_icons/arrow_left_24px.svg" alt="left arrow">

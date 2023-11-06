@@ -44,7 +44,7 @@ body {
 }
 
    
-/* Canvas
+/* Canvas / screens
    ========================================================================== */
 
 canvas {
@@ -53,6 +53,30 @@ canvas {
     height: 480px;
     /* Other */
     border: 2px solid #994409;
+    border-radius: 8px;
+}
+
+
+.start-screen {
+    /* Display & box model */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 720px;
+    height: 480px;
+    /* Other */
+    background-image: url('./img/9_intro_outro_screens/start/startscreen_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #994409;
+    border-radius: 8px;
+}
+
+.mobile-screen {
+    /* Display & box model */
+    display: none;
 }
 
 
@@ -66,11 +90,12 @@ canvas {
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    padding: 8px 16px;
+    padding: 16px;
     width: 720px;
     /* Other */
     background-color: rgba(247, 192, 101, 0.6);
     border: 2px solid #994409;
+    border-radius: 8px;
 }
 
 .control {
@@ -78,6 +103,26 @@ canvas {
     display: flex;
     flex-direction: row;
     gap: 8px;
+    /* Other*/
+    border-radius: 8px;
+}
+
+.btn {
+    /* Display & box model */    
+    top: 48px;
+    margin-top: 32px;
+    padding: 8px 16px;
+    /* Other */
+    background-color: rgba(247, 192, 101, 0.6);
+    border: 2px solid #994409;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.btn:hover {
+    /* Other */
+    background-color: rgba(247, 192, 101);
 }
 
 
@@ -88,11 +133,6 @@ canvas {
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
-.radius-8px {
-    /* Other */
-    border-radius: 8px;
 }
 
 .row-24px {
@@ -107,12 +147,45 @@ canvas {
     display: none;
 }
 
+.icon-48x48 {
+    /* Display & box model */
+    height: 48px;
+    width: 48px;
+}
+
+
+@media only screen and (max-width: 660px) {
+    .fullscreen {
+        /* Display & box model */
+        display: none;
+    }
+
+    .mobile-screen {
+        /* Display & box model */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 32px;
+        gap: 16px;
+        height: 100%;
+        width: 100%;
+        /* Other */
+        background-color: rgba(247, 192, 101, 0.6);
+    }
+}
 
 /* Fonts
    ========================================================================== */
+h4 {
+    font-family: 'zabras';
+    font-size: 36px;
+    color: #994409;
+}
 
-p {
-    font-size: 28px;
+p, .btn {
+    font-family: 'zabras';
+    font-size: 24px;
     color: #994409;
 }
 
