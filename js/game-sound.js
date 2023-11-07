@@ -134,10 +134,10 @@ function showSoundOnButton() {
 
 
 /**
- * Sets the volume of all game sounds to 0
+ * Sets the volume of all game sounds to 1
  */
 
-function allSoundsVolumeOff() {
+function allSoundsVolumeOn() {
     characterJumpSound.value = 1;
     characterDeadSound.value = 1;
     characterHurtSound.value = 1;

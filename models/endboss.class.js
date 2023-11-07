@@ -82,9 +82,9 @@ class Endboss extends MovableObject {
                 this.endbossAttentionAnimation();
             } else if (this.characterIsNearEndboss()) {
                 this.endbossAttackingAnimation();
-            } else if (endbossIsHurt()) {
+            } else if (this.endbossIsHurt()) {
                 this.endbossIsHurtAnimation();
-            } else if (endbossIsDead()) {
+            } else if (this.endbossIsDead()) {
                 this.endbossIsDeadAnimation();
             } else if (this.endbossWalking()) {
                 this.endbossIsWalking();

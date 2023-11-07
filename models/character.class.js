@@ -137,9 +137,9 @@ class Character extends MovableObject {
                 this.hurtAnimation();
             } else if (this.isAboveGround()) {
                 this.jumpAnimation();
-            } else if (isWalking()) {
+            } else if (this.isWalking()) {
                 this.walkingAnimation();
-            } else if (isStanding()) {
+            } else if (this.isStanding()) {
                 this.idleAnimation();
             } else {
                 this.longIdleAnimation();

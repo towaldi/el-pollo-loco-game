@@ -201,7 +201,7 @@ class MovableObject extends DrawableObject {
 
     chickenAnimation() {
         this.movingLeft();
-        this.checkingDeath();
+        this.endbossIsDead();
     }
 
 
@@ -221,7 +221,7 @@ class MovableObject extends DrawableObject {
      * Sets up an interval that checks if the chicken is dead.
      */
 
-    checkingDeath() {
+    endbossIsDead() {
         this.death = setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.images_dead);

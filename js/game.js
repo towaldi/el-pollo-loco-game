@@ -26,7 +26,7 @@ function startGame() {
         setEndgameStatisticToNull();
         gameSounds();
         initLevel();
-        mobileButtons();
+        // mobileButtons();
 		canvas = document.getElementById('canvas');
     	world = new World(canvas, keyboard);
 	}, 1000);

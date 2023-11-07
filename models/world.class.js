@@ -14,7 +14,7 @@ class World {
     cameraPosX = 0;
     statusBar = new StatusBar();
     coinBar = new CoinBar();
-    bottleBar = new bottleBar();
+    bottleBar = new BottleBar();
     endbossBar = new EndbossBar();
     throwableObjects = [];
     collectedBottles = 0;
@@ -66,7 +66,7 @@ class World {
 
     runBottles() {
         setStoppableInterval(() => {
-            this.checkThrowObjects();
+            this.checkThrowObject();
         }, 700);
     }
 
