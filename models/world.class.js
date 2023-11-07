@@ -109,7 +109,7 @@ class World {
      * @param {object} enemy - The enemy that is dying
      */
 
-    chickenIsDead() {
+    chickenIsDead(enemy) {
         enemy.energy = 0;
         chickenDeadSound.play();
     }
@@ -361,7 +361,7 @@ class World {
         this.addBackgroundObjects();
         this.addStatusBars();
         this.addMoveableObjects();
-        this.drawingFrames();
+        this.drawFrames();
     }
 
 
@@ -416,7 +416,7 @@ class World {
      * -> Calls 'requestAnimationFrame()' method to redraw the game screen at a rate suitable for the device's graphics capabilities
      */
 
-    draw() {
+    drawFrames() {
         let self = this;
 	    requestAnimationFrame(function() {
 		    self.draw();
@@ -430,10 +430,21 @@ class World {
      */
 
     addObjectsToMap(objects) {
-        objects.forEach(object => {
+        if (objects) {
+            objects.forEach((object) => {
+                this.addToMap(object);
+            });
+        }
+    }
+
+    /* Old Version:
+    
+    addObjectsToMap(objects) {
+        objects.forEach((object) => {
             this.addToMap(object);
         });
     }
+    */
 
 
     /**

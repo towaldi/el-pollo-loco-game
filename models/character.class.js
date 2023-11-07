@@ -117,7 +117,7 @@ class Character extends MovableObject {
             }
             // Jump
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
-                this.speedY = 30;
+                this.speedPosY = 30;
                 // this.jump();
             }
             this.world.cameraPosX = -this.posX + 80;
