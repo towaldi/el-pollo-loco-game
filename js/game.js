@@ -22,11 +22,11 @@ let killedChickenInMenu = 0;
 function startGame() {
 	switchContainer('start-screen', 'canvas');
 	setTimeout(() => {
-		switchContainer('start-screen', 'canvas');
+		// switchContainer('start-screen', 'canvas');
         setEndgameStatisticToNull();
         gameSounds();
         initLevel();
-        // mobileButtons();
+        //mobileButtons();
 		canvas = document.getElementById('canvas');
     	world = new World(canvas, keyboard);
 	}, 1000);
