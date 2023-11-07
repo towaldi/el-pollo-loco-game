@@ -154,7 +154,7 @@ function stopBackgroundMusic() {
 
 function showGameLostContainer() {
     setTimeout(() => {
-        gameLoseSound.play();
+        gameLostSound.play();
         showGameStatistic('collected-bottles-ingame', 'throwed-bottles-ingame', 'collected-coins-ingame', 'killed-chicken-ingame');
         document.getElementById('you-lost-container').classList.remove('d-none');
         document.getElementById('canvas-container').classList.add('d-none');

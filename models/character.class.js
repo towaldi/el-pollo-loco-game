@@ -117,7 +117,8 @@ class Character extends MovableObject {
             }
             // Jump
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
-                this.jump();
+                this.speedY = 30;
+                // this.jump();
             }
             this.world.cameraPosX = -this.posX + 80;
 
@@ -171,7 +172,7 @@ class Character extends MovableObject {
 
     stopGameGeneral() {
         setTimeout(() => {
-            this.stopGame();
+            stopAllIntervals();
             arrivedEndboss = false;
         },  700);
     }
