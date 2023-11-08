@@ -1,5 +1,5 @@
 /**
- * 'levle1.js' defines that are visibile in the game
+ * 'level1.js' defines that are visibile in the game
  */
 
 let level1;
@@ -22,9 +22,10 @@ function initLevel() {
             new SmallChicken(),
             new SmallChicken(),
             new SmallChicken(),
+        ],
+        [
             new Endboss()
-        ], 
-    
+        ],
         [
             new Cloud()
         ],
@@ -50,30 +51,30 @@ function initLevel() {
     
         [
             // Next images (-1)
-            new BackgroundObject('img/5_background/layers/air.png', -719),
-            new BackgroundObject('img/5_background/layers/3_third_layer/2.png', -719),
-            new BackgroundObject('img/5_background/layers/2_second_layer/2.png', -719),
-            new BackgroundObject('img/5_background/layers/1_first_layer/2.png', -719),
+            new BackgroundObject('./img/5_background/layers/air.png', -719),
+            new BackgroundObject('./img/5_background/layers/3_third_layer/2.png', -719),
+            new BackgroundObject('./img/5_background/layers/2_second_layer/2.png', -719),
+            new BackgroundObject('./img/5_background/layers/1_first_layer/2.png', -719),
+            // Next images (0)
+            new BackgroundObject('./img/5_background/layers/air.png', 0),
+            new BackgroundObject('./img/5_background/layers/3_third_layer/1.png', 0),
+            new BackgroundObject('./img/5_background/layers/2_second_layer/1.png', 0),
+            new BackgroundObject('./img/5_background/layers/1_first_layer/1.png', 0),
             // Next images (1)
-            new BackgroundObject('img/5_background/layers/air.png', 0),
-            new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 0),
-            new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 0),
-            new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 0),
+            new BackgroundObject('./img/5_background/layers/air.png', 719),
+            new BackgroundObject('./img/5_background/layers/3_third_layer/2.png', 719),
+            new BackgroundObject('./img/5_background/layers/2_second_layer/2.png', 719),
+            new BackgroundObject('./img/5_background/layers/1_first_layer/2.png', 719),
             // Next images (2)
-            new BackgroundObject('img/5_background/layers/air.png', 719),
-            new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719),
-            new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719),
-            new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719),
-    
-            new BackgroundObject('img/5_background/layers/air.png', 719*2),
-            new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 719*2),
-            new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719*2),
-            new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719*2),
-            // Next images (2)
-            new BackgroundObject('img/5_background/layers/air.png', 719*3),
-            new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719*3),
-            new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719*3),
-            new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719*3),
+            new BackgroundObject('./img/5_background/layers/air.png', 719*2),
+            new BackgroundObject('./img/5_background/layers/3_third_layer/1.png', 719*2),
+            new BackgroundObject('./img/5_background/layers/2_second_layer/1.png', 719*2),
+            new BackgroundObject('./img/5_background/layers/1_first_layer/1.png', 719*2),
+            // Next images (3)
+            new BackgroundObject('./img/5_background/layers/air.png', 719*3),
+            new BackgroundObject('./img/5_background/layers/3_third_layer/2.png', 719*3),
+            new BackgroundObject('./img/5_background/layers/2_second_layer/2.png', 719*3),
+            new BackgroundObject('./img/5_background/layers/1_first_layer/2.png', 719*3),
         ],
     );
 }

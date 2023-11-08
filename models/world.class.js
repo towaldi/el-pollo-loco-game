@@ -372,8 +372,8 @@ class World {
 
     addBackgroundObjects() {
         this.ctx.translate(this.cameraPosX, 0);
-        this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.level.backgroundObjects);
         this.ctx.translate(-this.cameraPosX, 0);
     }
 
@@ -437,8 +437,7 @@ class World {
         }
     }
 
-    /* Old Version:
-    
+    /* Old version:
     addObjectsToMap(objects) {
         objects.forEach((object) => {
             this.addToMap(object);
@@ -446,7 +445,7 @@ class World {
     }
     */
 
-
+    
     /**
      * Adds a movable object to the game world
      * -> If the object has a different direction, it flips the image before drawing
