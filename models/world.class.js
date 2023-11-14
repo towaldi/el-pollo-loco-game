@@ -55,7 +55,11 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollision();
-            this.checkCollisionsBottle();
+            this.checkCollisionWithEndboss();
+            this.checkCollisionBottle();
+            this.checkCollisionCoin();
+            this.killChickenWithBottle();
+            this.bottleCollidesWithEndboss();
         }, 1000 / 60);
     }
 
@@ -248,7 +252,7 @@ class World {
     /**
      * Checks collisions between character and bottle
      */
-    checkCollisionsBottle() {
+    checkCollisionBottle() {
         this.level.bottles.forEach((bottle) => {
             if (this.character.isColliding(bottle)) {
                 collectBottleSound.play();
