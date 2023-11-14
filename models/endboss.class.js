@@ -64,7 +64,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.images_dead);
         
         this.posX = 2000;
-        // this.speed = 15;
+        this.speed = 5;
         this.endbossAnimation();
     }
 
@@ -89,9 +89,7 @@ class Endboss extends MovableObject {
             } else if (this.endbossWalking()) {
                 this.endbossIsWalking();
             }
-		}, 1000 / 12);
-
-        this.moveLeft();
+		}, 1000 / 60);
 	}
 
 

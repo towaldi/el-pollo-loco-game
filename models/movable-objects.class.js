@@ -102,7 +102,7 @@ class MovableObject extends DrawableObject {
     /**
      * Checks if object collides with another movable object
      * @param {MovableObject} movableObject -> movable object
-     * @returns {boolean} -> 'true
+     * @returns {boolean} -> 'true'
      */
 
     isColliding(movableObject) {
