@@ -136,3 +136,26 @@ function init() {
     ],
 );
  */
+
+
+
+// @media only screen and (max-width: 660px) {
+//     .fullscreen {
+//         /* Display & box model */
+//         display: none;
+//     }
+
+//     .mobile-screen {
+//         /* Display & box model */
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         padding: 32px;
+//         gap: 16px;
+//         height: 100%;
+//         width: 100%;
+//         /* Other */
+//         background-color: rgba(247, 192, 101, 0.6);
+//     }
+// }

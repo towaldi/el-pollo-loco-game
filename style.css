@@ -49,8 +49,9 @@ body {
 
 canvas {
     /* Display & box model */
-    width: 720px;
-    height: 480px;
+    display: block;
+    /* width: 720px;
+    height: 480px; */
     /* Other */
     border: 2px solid #994409;
     border-radius: 8px;
@@ -154,24 +155,16 @@ canvas {
 }
 
 
-@media only screen and (max-width: 660px) {
-    .fullscreen {
-        /* Display & box model */
-        display: none;
-    }
-
-    .mobile-screen {
-        /* Display & box model */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 32px;
-        gap: 16px;
-        height: 100%;
+@media only screen and (max-width: 720px) {
+    .canvas {
         width: 100%;
-        /* Other */
-        background-color: rgba(247, 192, 101, 0.6);
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+    .canvas {
+        width: 100vh;
     }
 }
 
