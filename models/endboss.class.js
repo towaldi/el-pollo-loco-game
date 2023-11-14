@@ -225,7 +225,7 @@ class Endboss extends MovableObject {
         this.playAnimation(this.images_walking);
         this.playEndbossMusic();
         this.moveLeft();
-        this.otherDirection = falseL;
+        this.otherDirection = false;
     }
 
 

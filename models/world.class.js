@@ -152,7 +152,7 @@ class World {
      * Character is temporarily invulnerable
      */
 
-    characterNotVulnerable() {
+    characterInvulnerable() {
         this.characterNotVulnerable = true;
         setTimeout(() => {
             this.characterNotVulnerable = false;
@@ -184,7 +184,19 @@ class World {
 
     endbossWasHit(endboss) {
         endboss.hittedByBottle();
-        this.endbossNotVulnerable();
+        this.endbossNotHitable();
+    }
+
+
+    /**
+     * Makes the end boss temporarily not vulnerable
+     */
+
+    endbossNotHitable() {
+        this.endbossNotVulnerable = true;
+        setTimeout(() => {
+            this.endbossNotVulnerable = false;
+        }, 1000);
     }
     
 
