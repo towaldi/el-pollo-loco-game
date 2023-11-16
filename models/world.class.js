@@ -71,7 +71,7 @@ class World {
     runBottles() {
         setStoppableInterval(() => {
             this.checkThrowObject();
-        }, 100);
+        }, 200);
     }
 
 
