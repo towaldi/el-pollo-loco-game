@@ -222,7 +222,7 @@ class World {
 
     reduceBottleBar() {
         this.bottleBar.collected--;
-        this.bottleBar.setCollected(this.statusBar.collected);
+        this.bottleBar.setCollected(this.bottleBar.collected);
     }
 
 
