@@ -63,8 +63,8 @@ class Endboss extends MovableObject {
         this.loadImages(this.images_hurt);
         this.loadImages(this.images_dead);
         
-        this.posX = 2000;
-        this.speed = 5;
+        this.posX = 2400;
+        this.speed = 2;
         this.endbossAnimation();
     }
 
@@ -89,7 +89,7 @@ class Endboss extends MovableObject {
             } else if (this.endbossWalking()) {
                 this.endbossIsWalking();
             }
-		}, 1000 / 60);
+		}, 120);
 	}
 
 
@@ -174,7 +174,7 @@ class Endboss extends MovableObject {
 
     stopGame() {
         setTimeout(() => {
-            this.stopAllIntervals();
+            stopAllIntervals();
             arrivedEndboss = false;
         }, 1500);
     }
