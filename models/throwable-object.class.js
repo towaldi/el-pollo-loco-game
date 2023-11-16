@@ -47,10 +47,8 @@ class ThrowableObject extends MovableObject {
 
     throw() {
         this.speedY = 30;
-        this.applyGravity();
-        setInterval(() => {
-            this.posX += 10;
-        }, 25)
+        this.applyGravityBottle();
+        this.throwingLeftOrRight();
     }
 
 
@@ -65,7 +63,7 @@ class ThrowableObject extends MovableObject {
             } else {
                 this.posX += 10;
             }
-        }, 24);
+        }, 25);
 
         setTimeout(() => clearInterval(this.throwingInterval), 1000);
     }
@@ -87,7 +85,7 @@ class ThrowableObject extends MovableObject {
 
     splashOrThrowingAnimation() {
         this.splashAnimation = setInterval(() => {
-            if (this.posY || world.bottleStrikesEndboss) {
+            if (this.posY > 240 || world.bottleStrikesEndboss) {
                 this.playSplashAnimation();
             } else {
                 this.playAnimation(this.images_throwing_bottle);
@@ -113,7 +111,7 @@ class ThrowableObject extends MovableObject {
 
     playSplashAnimation() {
         this.playAnimation(this.images_splash_bottle);
-        // bottleSplashSound.play();
+        bottleSplashSound.play();
         this.speed = 0;
         this.height = 100;
         this.splashEffect();

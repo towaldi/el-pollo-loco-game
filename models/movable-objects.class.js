@@ -23,7 +23,7 @@ class MovableObject extends DrawableObject {
      * Applies gravity to the bottle object
      */
 
-    applyGravity() {
+    applyGravityBottle() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedPosY > 0) {
                 this.posY -= this.speedPosY;
