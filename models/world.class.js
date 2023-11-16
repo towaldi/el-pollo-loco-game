@@ -24,7 +24,7 @@ class World {
 
 
     /**
-     * 
+     * Constructs a new world
      * @param {*} canvas -> Canvas on which the game is drawn
      * @param {*} keyboard -> Keyboard object capturing users inputs
      */
@@ -71,7 +71,7 @@ class World {
     runBottles() {
         setStoppableInterval(() => {
             this.checkThrowObject();
-        }, 700);
+        }, 100);
     }
 
 
