@@ -84,6 +84,7 @@ class World {
             if (this.character.isColliding(enemy)) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     this.killChicken(enemy);
+                    console.log('chicken is killed!');
                 } else {
                     this.character.hit();
                     this.statusBar.setPercentage(this.character.energy);
