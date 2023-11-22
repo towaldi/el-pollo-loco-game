@@ -85,8 +85,10 @@ class World {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     this.killChicken(enemy);
                     console.log('chicken is killed!');
-                } else {
+                } else if (!this.characterNotVulnerable) {
+                    this.characterInvulnerable();
                     this.character.hit();
+                    console.log('character is hit!');
                     this.statusBar.setPercentage(this.character.energy);
                 }
             }
