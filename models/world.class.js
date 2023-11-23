@@ -79,15 +79,30 @@ class World {
      * Checks for collisions between the character and chickens
      */
 
+    // checkCollision() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if (this.character.isColliding(enemy)) {
+    //             if (this.character.isAboveGround() && !this.character.isHurt()) {
+    //                 this.killChicken(enemy);
+    //                 console.log('chicken is killed!');
+    //             } else if (!this.characterNotVulnerable) {
+    //                 this.characterInvulnerable();
+    //                 console.log('character is invulnerable!');
+    //             } else if (!this.characterNotVulnerable) {
+    //                 this.character.hit();
+    //                 console.log('character is hit!');
+    //                 this.statusBar.setPercentage(this.character.energy);
+    //             }
+    //         }
+    //     });
+    // }
+
     checkCollision() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     this.killChicken(enemy);
                     console.log('chicken is killed!');
-                } else if (!this.characterNotVulnerable) {
-                    this.characterInvulnerable();
-                    console.log('character is invulnerable!');
                 } else {
                     this.character.hit();
                     console.log('character is hit!');
@@ -109,7 +124,7 @@ class World {
 
         setTimeout(() => {
             this.deleteEnemy(enemy);
-        }, 500);
+        }, 1000 / 60); // modifaction -> check collision fix! (normaly 500)
     }
 
 
@@ -161,7 +176,7 @@ class World {
         this.characterNotVulnerable = true;
         setTimeout(() => {
             this.characterNotVulnerable = false;
-        }, 1000);
+        }, 1500);
     }
 
 
