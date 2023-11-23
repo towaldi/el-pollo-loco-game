@@ -87,6 +87,8 @@ class World {
                     console.log('chicken is killed!');
                 } else if (!this.characterNotVulnerable) {
                     this.characterInvulnerable();
+                    console.log('character is invulnerable!');
+                } else {
                     this.character.hit();
                     console.log('character is hit!');
                     this.statusBar.setPercentage(this.character.energy);
