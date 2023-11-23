@@ -49,6 +49,7 @@ body {
 
 canvas {
     /* Display & box model */
+    position: relative;
     display: block;
     /* width: 720px;
     height: 480px; */
@@ -84,6 +85,10 @@ canvas {
 /* Controls
    ========================================================================== */
 
+.panel {
+    position: absolute;
+}
+
 .controls {
     /* Display & box model */
     display: flex;
@@ -97,6 +102,18 @@ canvas {
     background-color: rgba(247, 192, 101, 0.6);
     border: 2px solid #994409;
     border-radius: 8px;
+}
+
+.control-container {
+    /* Display & box model */
+    position: absolute;
+    bottom: 30%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
 }
 
 .control {
