@@ -53,7 +53,7 @@ class World {
      */
 
     run() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.checkCollision();
             this.checkCollisionWithEndboss();
             this.checkCollisionBottle();

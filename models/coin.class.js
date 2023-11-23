@@ -32,11 +32,11 @@ class Coin extends MovableObject {
 
     /**
      * Sets up the animation
-     * -> Uses 'setInterval()' to periodically update the coin's animation (every 0.24 seconds)
+     * -> Uses 'setStoppableInterval()' to periodically update the coin's animation (every 0.24 seconds)
      */
 
     collectablesAnimation() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.playAnimation(this.images_coin);
         }, 240);
     }

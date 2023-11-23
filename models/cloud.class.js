@@ -28,11 +28,11 @@ class Cloud extends MovableObject {
 
     /**
      * Responsible for the animation of the cloud
-     * -> Uses 'setInterval()' to move cloud to the left at 60 frames per second
+     * -> Uses 'setStoppableInterval()' to move cloud to the left at 60 frames per second
      */
 
     animate() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.moveLeft();
             this.otherDirection = false;
         }, 1000 / 60);

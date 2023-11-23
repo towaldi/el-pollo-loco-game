@@ -25,7 +25,7 @@ class MovableObject extends DrawableObject {
      */
 
     applyGravityBottle() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.isAboveGround() || this.speedPosY > 0) {
                 this.posY -= this.speedPosY;
                 this.speedPosY -= this.acceleration;
@@ -40,7 +40,7 @@ class MovableObject extends DrawableObject {
      */
 
     applyGravityCharacter() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.isAboveGround() || this.speedPosY > 0) {
                 this.posY -= this.speedPosY;
                 this.speedPosY -= this.acceleration;

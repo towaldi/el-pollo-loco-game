@@ -30,11 +30,11 @@ class Bottle extends MovableObject {
 
     /**
      * Sets up the animation
-     * -> Uses 'setInterval()' to periodically update the bottle's animation (every 0.36 seconds)
+     * -> Uses 'setStoppableInterval()' to periodically update the bottle's animation (every 0.36 seconds)
      */
 
     collectablesAnimation() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             this.playAnimation(this.images_bottle);
         }, 360);
     }

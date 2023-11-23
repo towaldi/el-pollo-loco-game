@@ -77,7 +77,7 @@ class Endboss extends MovableObject {
      */
 
     endbossAnimation() {
-		setInterval(() => {
+		setStoppableInterval(() => {
             if (this.arrivingEndboss()) {
                 this.endbossAttentionAnimation();
             } else if (this.characterIsNearEndboss()) {
@@ -198,7 +198,7 @@ class Endboss extends MovableObject {
 
     endbossDownFromCanvas() {
         setTimeout(() => {
-            setInterval(() => {
+            setStoppableInterval(() => {
                 this.posY += 20;
             }, 50);
         }, 500);

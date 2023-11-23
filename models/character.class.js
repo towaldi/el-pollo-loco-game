@@ -106,7 +106,7 @@ class Character extends MovableObject {
      */
 
     animate() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             // Move right
             if (this.world && this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
                 this.moveRight();
@@ -128,10 +128,10 @@ class Character extends MovableObject {
         /**
          * Is used to control the character's animation based on it's current state
          * -> Checks if character is in various states like dead, hurt, jumping, walking, standing or idle state -> triggers corresponding animation
-         * -> Interval 100ms -> smooth anaimations
+         * -> Interval 100ms -> smooth animations
          */
         
-		setInterval(() => {
+		setStoppableInterval(() => {
             if (this.isDead()) {
                 this.deathAnimation();
             } else if (this.isHurt()) {
