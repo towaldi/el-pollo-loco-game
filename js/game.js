@@ -119,12 +119,12 @@ function checkKilledChicken() {
  * @param {string} id2 - Id of the element to display the number of collected coins.
  * @param {string} id3 - Id of the element to display the number of killed chickens.
  */
-function showGameStatistic(id1, id2, id3, id4) {
-    document.getElementById(id1).innerHTML = bottlesCollectedInMenu;
-    document.getElementById(id2).innerHTML = bottlesThrowedInMenu;
-    document.getElementById(id3).innerHTML = coinsCollectedInMenu;
-    document.getElementById(id4).innerHTML = killedChickenInMenu;
-}
+// function showGameStatistic(id1, id2, id3, id4) {
+//     document.getElementById(id1).innerHTML = bottlesCollectedInMenu;
+//     document.getElementById(id2).innerHTML = bottlesThrowedInMenu;
+//     document.getElementById(id3).innerHTML = coinsCollectedInMenu;
+//     document.getElementById(id4).innerHTML = killedChickenInMenu;
+// }
 
 
 /**
@@ -133,7 +133,7 @@ function showGameStatistic(id1, id2, id3, id4) {
 
 function gameLost() {
 	stopBackgroundMusic();
-	showGameLostContainer();
+	// showGameLostContainer();
 }
 
 
@@ -152,14 +152,14 @@ function stopBackgroundMusic() {
  * -> After 500ms.
  */
 
-function showGameLostContainer() {
-    setTimeout(() => {
-        gameLostSound.play();
-        showGameStatistic('collected-bottles-ingame', 'throwed-bottles-ingame', 'collected-coins-ingame', 'killed-chicken-ingame');
-        document.getElementById('you-lost-container').classList.remove('d-none');
-        document.getElementById('canvas-container').classList.add('d-none');
-    }, 500);
-}
+// function showGameLostContainer() {
+//     setTimeout(() => {
+//         gameLostSound.play();
+//         showGameStatistic('collected-bottles-ingame', 'throwed-bottles-ingame', 'collected-coins-ingame', 'killed-chicken-ingame');
+//         document.getElementById('you-lost-container').classList.remove('d-none');
+//         document.getElementById('canvas-container').classList.add('d-none');
+//     }, 500);
+// }
 
 
 /**

@@ -159,3 +159,15 @@ function init() {
 //         background-color: rgba(247, 192, 101, 0.6);
 //     }
 // }
+
+
+// <!-- Collected items (bottles) -->
+//                 <div class="collected-items">
+//                     <p>Collected Bottle:</p>
+//                     <p id="collected-bottles-ingame">6</p>
+//                 </div>
+//                 <!-- Collected items (coins) -->
+//                 <div class="collected-items">
+//                     <p>Collected Coins:</p>
+//                     <p id="collected-coins-ingame">6</p>
+//                 </div>
