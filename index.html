@@ -64,7 +64,16 @@
         </div>
 
         <!-- Container won -->
-        <div id="won-or-lost-container" class="won-or-lost-container d-none">
+        <div id="won-container" class="won-container d-none">
+            <!-- Buttons -->
+            <div class="btns">
+                <button onclick="restartGame('won-or-lost-container')" class="btn">Restart</button>
+                <button onclick="goToMainMenu('won-or-lost-container', 'start-screen')" class="btn">Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Container lost -->
+        <div id="lost-container" class="lost-container d-none">
             <!-- Buttons -->
             <div class="btns">
                 <button onclick="restartGame('won-or-lost-container')" class="btn">Restart</button>
