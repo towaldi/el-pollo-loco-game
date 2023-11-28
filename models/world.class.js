@@ -158,13 +158,13 @@ class World {
      */
 
     checkCollisionWithEndboss() {
-        this.level.endboss.forEach((endboss) => {
-            if (this.character.isColliding(endboss) && !this.characterNotVulnerable) {
+        //this.level.endboss.forEach((endboss) => {
+            if (this.character.isColliding(this.endboss) && !this.characterNotVulnerable) {
                 this.character.hittedByEndboss();
                 this.statusBar.setPercentage(this.character.energy);
                 this.characterInvulnerable();
             }
-        });
+        //});
     }
 
 
@@ -186,14 +186,15 @@ class World {
 
     bottleCollidesWithEndboss() {
         this.throwableObjects.forEach((bottle) => {
-            this.level.endboss.forEach((endboss) => {
-                if (bottle.isColliding(endboss) && !this.endbossNotVulnerable) {
+            // this.level.endboss.forEach((endboss) => {
+                if (bottle.isColliding(this.endboss) && !this.endbossNotVulnerable) {
                     this.bottleStrikesEndboss = true;
-                    this.endbossWasHit(endboss);
+                    this.endbossWasHit(this.endboss);
                 }
-            });
+            //});
         });
-        this.endbossBar.setPercentage(world.level.endboss[0].energy);
+        this.endbossBar.setPercentage(this.endbossBar.energy);
+        // this.endbossBar.setPercentage(world.level.endboss[0].energy);
     }
 
 
