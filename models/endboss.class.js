@@ -80,7 +80,7 @@ class Endboss extends MovableObject {
     endbossAnimation() {
 		setStoppableInterval(() => {
             if (this.arrivingEndboss()) {
-                arrivedEndboss = true;
+                // arrivedEndboss = true;
                 this.endbossAttentionAnimation();
             } else if (this.characterIsNearEndboss()) {
                 this.endbossAttackingAnimation();
@@ -117,7 +117,7 @@ class Endboss extends MovableObject {
         setTimeout(() => {
             this.arrivingAnimationState = true;
         }, 1500);
-        //this.endbossStartsWalking();
+        this.endbossStartsWalking();
     }
 
 
