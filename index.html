@@ -27,10 +27,14 @@
         <canvas id="canvas" class="canvas box-shadow-6 d-none" width="720" height="480">
             <!-- Game content -->
         </canvas>
-        <!-- Button panels -->
-        <div id="panel" class="d-none">
-            <img onclick="soundOff()" class="" src="./img/10_icons/volume_off_24px.svg" alt="volume on">
-            <img onclick="soundOn()" class="d-none" src="./img/10_icons/volume_up_24px.svg" alt="volume on">
+
+        <!-- Overlays -->
+        <div class="overlay d-none">
+            <!-- Button panels top -->
+            <div id="panel" class="panel d-none">
+                <button onclick="soundOff()" class="mobile-btn"><img src="./img/10_icons/volume_off_24px.svg" alt="volume off"></button>
+                <button onclick="soundOn()" class="mobile-btn"><img src="./img/10_icons/volume_up_24px.svg" alt="volume on"></button>
+            </div>
         </div>
 
         <!-- Sound buttons -->

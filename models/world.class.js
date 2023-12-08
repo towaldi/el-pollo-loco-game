@@ -193,7 +193,6 @@ class World {
                 }
             });
         });
-        this.endbossBar.setPercentage(this.endbossBar.energy);
         this.endbossBar.setPercentage(world.level.endboss[0].energy);
     }
 

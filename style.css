@@ -76,6 +76,22 @@ canvas {
     border-radius: 8px;
 }
 
+
+
+.overlay {
+    /* Display & box model */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 720px;
+    height: 480px;
+}
+
+.panel {
+    /* Display & box model */
+}
+
 .mobile-screen {
     /* Display & box model */
     display: none;
@@ -138,7 +154,22 @@ canvas {
     transition: all 0.1s ease-in-out;
 }
 
-.btn:hover {
+.mobile-btn {
+    /* Display & box model */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    /* Other */
+    background-color: rgba(247, 192, 101, 0.6);
+    border: 2px solid #994409;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.btn:hover, 
+.mobile-btn:hover {
     /* Other */
     background-color: rgba(247, 192, 101);
 }
