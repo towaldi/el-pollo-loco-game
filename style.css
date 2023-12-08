@@ -49,7 +49,7 @@ body {
 
 canvas {
     /* Display & box model */
-    position: relative;
+    position: absolute;
     display: block;
     /* width: 720px;
     height: 480px; */
@@ -64,7 +64,6 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    position: relative;
     width: 720px;
     height: 480px;
     /* Other */
@@ -80,16 +79,37 @@ canvas {
 
 .overlay {
     /* Display & box model */
+    position: absolute;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    position: relative;
     width: 720px;
     height: 480px;
 }
 
+.panel, 
+.panel-sound, 
+.panel-control {
+    /* Display & box model */
+    display: flex;
+    width: 100%;
+    padding: 8px;
+}
+
 .panel {
     /* Display & box model */
+    justify-content: center;
+}
+
+.panel-sound {
+    /* Display & box model */
+    justify-content: flex-end;
+}
+
+.panel-control {
+    /* Display & box model */
+    justify-content: space-between;
 }
 
 .mobile-screen {
@@ -100,10 +120,6 @@ canvas {
 
 /* Controls
    ========================================================================== */
-
-.panel {
-    position: absolute;
-}
 
 .controls {
     /* Display & box model */
@@ -141,10 +157,14 @@ canvas {
     border-radius: 8px;
 }
 
+.btns {
+    /* Display & box model */
+    display: flex;
+    gap: 8px;
+}
+
 .btn {
     /* Display & box model */    
-    top: 48px;
-    margin-top: 32px;
     padding: 8px 16px;
     /* Other */
     background-color: rgba(247, 192, 101, 0.6);
@@ -208,13 +228,6 @@ canvas {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-}
-
-.btns {
-    /* Display & box model */
-    display: flex;
-    flex-direction: row;
-    gap: 16px
 }
 
 /* Styles
