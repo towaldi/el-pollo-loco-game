@@ -124,7 +124,7 @@ class World {
 
         setTimeout(() => {
             this.deleteEnemy(enemy);
-        }, 1000 / 60); // modifaction -> check collision fix! (normaly 500)
+        }, 500); // modifaction -> check collision fix! (normaly 500)
     }
 
 
