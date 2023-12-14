@@ -1,3 +1,7 @@
+/**
+ * Sounds
+ */
+
 characterJumpSound = new Audio('./audio/character_jump_sound.mp3');
 characterDeadSound = new Audio('./audio/character_dead_sound.mp3');
 characterHurtSound = new Audio('./audio/character_jump_sound.mp3');
@@ -19,6 +23,27 @@ gameEndbossMusic = new Audio('./audio/endboss_attention_sound.mp3');
 
 gameWonSound = new Audio('./audio/game_won_sound.mp3');
 gameLostSound = new Audio('./audio/game_won_sound.mp3');
+
+
+/**
+ * Checking if audioelements are loaded correctly
+ */
+
+characterDeadSound.load();
+characterDeadSound.load();
+characterHurtSound.load();
+chickenDeadSound.load();
+throwBottleSound.load();
+collectBottleSound.load();
+bottleSplashSound.load();
+collectCoinSound.load();
+endbossHurtSound.load();
+endbossAttentionSound.load();
+endbossAttackSound.load();
+gameBackgroundMusic.load();
+gameEndbossMusic.load();
+gameWonSound.load();
+gameLostSound.load();
 
 
 let gameMusicOff = false;
@@ -66,6 +91,7 @@ function checkGameMusic() {
  */
 
 function soundOff() {
+    console.log('sound off button is clicked!');
     gameMusicOff = true;
     showSoundOffButton();
     allSoundsVolumeOff();
@@ -77,8 +103,8 @@ function soundOff() {
  */
 
 function showSoundOffButton() {
-    // document.getElementById('').classList.add('d-none');
-    // document.getElementById('').classList.remove('d-none');
+    document.getElementById('sound-off').classList.add('d-none');
+    document.getElementById('sound-on').classList.remove('d-none');
 }
 
 
@@ -87,27 +113,27 @@ function showSoundOffButton() {
  */
 
 function allSoundsVolumeOff() {
-    characterJumpSound.value = 0;
-    characterDeadSound.value = 0;
-    characterHurtSound.value = 0;
+    characterJumpSound.volume = 0;
+    characterDeadSound.volume = 0;
+    characterHurtSound.volume = 0;
 
-    chickenDeadSound.value = 0;
+    chickenDeadSound.volume = 0;
 
-    throwBottleSound.value = 0;
-    collectBottleSound.value = 0;
-    bottleSplashSound.value = 0;
+    throwBottleSound.volume = 0;
+    collectBottleSound.volume = 0;
+    bottleSplashSound.volume = 0;
 
-    collectCoinSound.value = 0;
+    collectCoinSound.volume = 0;
 
-    endbossHurtSound.value = 0;
-    endbossAttentionSound.value = 0;
-    endbossAttackSound.value = 0;
+    endbossHurtSound.volume = 0;
+    endbossAttentionSound.volume = 0;
+    endbossAttackSound.volume = 0;
 
-    gameBackgroundMusic.value = 0;
-    gameEndbossMusic.value = 0;
+    gameBackgroundMusic.volume = 0;
+    gameEndbossMusic.volume = 0;
 
-    gameWonSound.value = 0;
-    gameLostSound.value = 0;
+    gameWonSound.volume = 0;
+    gameLostSound.volume = 0;
 }
 
 
@@ -117,6 +143,7 @@ function allSoundsVolumeOff() {
  */
 
 function soundOn() {
+    console.log('sound on button is clicked!');
     gameMusicOff = false;
     showSoundOnButton();
     allSoundsVolumeOn();
@@ -128,8 +155,8 @@ function soundOn() {
  */
 
 function showSoundOnButton() {
-    // document.getElementById('').classList.remove('d-none');
-    // document.getElementById('').classList.add('d-none');
+    document.getElementById('sound-off').classList.remove('d-none');
+    document.getElementById('sound-on').classList.add('d-none');
 }
 
 
@@ -138,27 +165,27 @@ function showSoundOnButton() {
  */
 
 function allSoundsVolumeOn() {
-    characterJumpSound.value = 1;
-    characterDeadSound.value = 1;
-    characterHurtSound.value = 1;
+    characterJumpSound.volume = 1;
+    characterDeadSound.volume = 1;
+    characterHurtSound.volume = 1;
 
-    chickenDeadSound.value = 1;
+    chickenDeadSound.volume = 1;
 
-    throwBottleSound.value = 1;
-    collectBottleSound.value = 1;
-    bottleSplashSound.value = 1;
+    throwBottleSound.volume = 1;
+    collectBottleSound.volume = 1;
+    bottleSplashSound.volume = 1;
 
-    collectCoinSound.value = 1;
+    collectCoinSound.volume = 1;
 
-    endbossHurtSound.value = 1;
-    endbossAttentionSound.value = 1;
-    endbossAttackSound.value = 1;
+    endbossHurtSound.volume = 1;
+    endbossAttentionSound.volume = 1;
+    endbossAttackSound.volume = 1;
 
-    gameBackgroundMusic.value = 1;
-    gameEndbossMusic.value = 1;
+    gameBackgroundMusic.volume = 1;
+    gameEndbossMusic.volume = 1;
 
-    gameWonSound.value = 1;
-    gameLostSound.value = 1;
+    gameWonSound.volume = 1;
+    gameLostSound.volume = 1;
 }
 
 

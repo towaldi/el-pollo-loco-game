@@ -31,11 +31,11 @@
         </canvas>
 
         <!-- Overlays -->
-        <div class="overlay d-none">
+        <div id="overlay" class="overlay d-none">
             <!-- Button panels top -->
             <div id="panel-sound" class="panel-sound">
-                <button onclick="soundOff()" class="mobile-btn d-none"><img src="./img/10_icons/volume_off_24px.svg" alt="volume off"></button>
-                <button onclick="soundOn()" class="mobile-btn"><img src="./img/10_icons/volume_up_24px.svg" alt="volume on"></button>
+                <button onclick="soundOn()" id="sound-on" class="mobile-btn d-none"><img src="./img/10_icons/volume_off_24px.svg" alt="volume on"></button>
+                <button onclick="soundOff()" id="sound-off" class="mobile-btn"><img src="./img/10_icons/volume_up_24px.svg" alt="volume off"></button>
             </div>
             <div id="panel-controls" class="panel-control">
                 <div class="btns">
@@ -43,8 +43,8 @@
                     <button class="mobile-btn"><img src="./img/10_icons/arrow_right_24px.svg" alt="move right"></button>
                 </div>
                 <div class="btns">
-                    <button class="mobile-btn"><img src="./img/10_icons/arrow_left_24px.svg" alt="move left"></button>
-                    <button class="mobile-btn"><img src="./img/10_icons/arrow_right_24px.svg" alt="move right"></button>
+                    <button class="mobile-btn"><img src="./img/10_icons/jump_24px.svg" alt="jump"></button>
+                    <button class="mobile-btn"><img src="./img/10_icons/liquor_24px.svg" alt="throw bottle"></button>
                 </div>
             </div>
         </div>

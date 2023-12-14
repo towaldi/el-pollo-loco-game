@@ -16,17 +16,17 @@ let killedChickenInMenu = 0;
 
 /**
  * Initializes the game
- * -> Displaying loading screen, drawing world, resets statistics, display mobile buttons
+ * -> Displaying loading screen, drawing world, display overly (mobile buttons)
  */
 
 function startGame() {
 	switchContainer('start-screen', 'canvas');
 	setTimeout(() => {
 		// switchContainer('start-screen', 'canvas');
-        setEndgameStatisticToNull();
+        // setEndgameStatisticToNull();
         gameSounds();
         initLevel();
-        //mobileButtons();
+		document.getElementById('overlay').classList.remove('d-none');
 		canvas = document.getElementById('canvas');
     	world = new World(canvas, keyboard);
 	}, 1000);
