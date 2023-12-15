@@ -27,6 +27,8 @@ function startGame() {
         gameSounds();
         initLevel();
 		document.getElementById('overlay').classList.remove('d-none');
+		document.getElementById('won-screen').classList.add('d-none');
+		document.getElementById('lost-screen').classList.add('d-none');
 		canvas = document.getElementById('canvas');
     	world = new World(canvas, keyboard);
 	}, 1000);
@@ -133,7 +135,7 @@ function checkKilledChicken() {
 
 function gameLost() {
 	stopBackgroundMusic();
-	// showGameLostContainer();
+	showGameLostContainer();
 }
 
 
@@ -156,8 +158,8 @@ function showGameLostContainer() {
     setTimeout(() => {
         gameLostSound.play();
         // showGameStatistic('collected-bottles-ingame', 'throwed-bottles-ingame', 'collected-coins-ingame', 'killed-chicken-ingame');
-        document.getElementById('won-or-lost-container').classList.remove('d-none');
-        document.getElementById('canvas').classList.add('d-none');
+        document.getElementById('lost-screen').classList.remove('d-none');
+        // document.getElementById('canvas').classList.add('d-none');
     }, 500);
 }
 
@@ -180,8 +182,8 @@ function gameWon() {
 function showGameWonContainer() {
     setTimeout(() => {
         // showGameStatistic('collected-bottles-ingame-win', 'throwed-bottles-ingame-win', 'collected-coins-ingame-win', 'killed-chicken-ingame-win');
-        document.getElementById('won-or-lost-container').classList.remove('d-none');
-        document.getElementById('canvas').classList.add('d-none');
+        document.getElementById('won-screen').classList.remove('d-none');
+        // document.getElementById('canvas').classList.add('d-none');
     }, 1200);
 }
 

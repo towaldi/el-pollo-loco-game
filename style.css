@@ -72,7 +72,7 @@ canvas {
     background-size: cover;
     background-position: center;
     border: 2px solid #994409;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 
@@ -197,11 +197,11 @@ canvas {
 
 /* Game won/lost
    ========================================================================== */
-.won-container,
-.lost-container {
+.won-screen,
+.lost-screen {
     /* Display & box model */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
     position: relative;
     width: 720px;
@@ -211,24 +211,14 @@ canvas {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border: 2px solid #994409;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
-.lost-container {
+.lost-screen {
     /* Other */
     background-image: url('./img/9_intro_outro_screens/game_over/you lost.png');
 }
 
-
-.collected-items {
-    /* Display & box model */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-}
 
 /* Styles
    ========================================================================== */
