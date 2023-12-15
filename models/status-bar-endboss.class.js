@@ -27,7 +27,7 @@ class EndbossBar extends StatusBar {
         super();
         this.loadImages(this.statusbar_images);
         this.setPercentage(100);
-        this.posX = 520;
+        this.posX = 480;
         this.posY = 27;
         this.width = 170;
         this.height = 34;
@@ -40,8 +40,8 @@ class EndbossBar extends StatusBar {
      * @param {number} percent -> Health percentage of the endboss
      */
 
-    setPercentage(percent) {
-        this.percent = percent;
+    setPercentage(percentage) {
+        this.percentage = percentage;
         let path = this.statusbar_images[this.resolveImageIndexHealth()];
         this.img = this.imageCache[path];
     }
