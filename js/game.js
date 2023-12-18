@@ -31,7 +31,25 @@ function startGame() {
 		document.getElementById('lost-screen').classList.add('d-none');
 		canvas = document.getElementById('canvas');
     	world = new World(canvas, keyboard);
-	}, 1000);
+	}, 400);
+}
+
+
+/**
+ * Shows keys in start screen
+ */
+
+function showKeysManual() {
+	document.getElementById('manual-screen').classList.remove('d-none');
+}
+
+
+/**
+ * Shows start screen again (if key manual is open)
+ */
+
+function showStartScreen() {
+	document.getElementById('manual-screen').classList.add('d-none');
 }
 
 

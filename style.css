@@ -76,6 +76,25 @@ canvas {
 }
 
 
+.manual-screen {
+    /* Display & box model */
+    z-index: 1;
+    justify-content: flex-start !important;
+    gap: 16px;
+    /* Other */
+    background-color: rgba(247, 192, 101, 0.85);
+    border-radius: 6px;
+}
+
+.keys {
+    /* Display & box model */
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 0 32px 0 32px;
+}
+
+
 
 .overlay {
     /* Display & box model */
@@ -90,7 +109,9 @@ canvas {
 
 .panel, 
 .panel-sound, 
-.panel-control {
+.panel-control,
+.panel-close,
+.panel-manual {
     /* Display & box model */
     display: flex;
     width: 100%;
@@ -102,7 +123,9 @@ canvas {
     justify-content: center;
 }
 
-.panel-sound {
+.panel-sound,
+.panel-close,
+.panel-manual {
     /* Display & box model */
     justify-content: flex-end;
 }
@@ -229,11 +252,20 @@ canvas {
     box-shadow: 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
-.row-24px {
+.column-24px {
+    /* Display & box model */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+.icon-description {
     /* Display & box model */
     display: flex;
     flex-direction: row;
     gap: 24px;
+    padding-right: 48px;
 }
 
 .d-none {
@@ -247,6 +279,16 @@ canvas {
     width: 48px;
 }
 
+.icon-24x24 {
+    /* Display & box model */
+    height: 24px;
+    width: 24px;
+}
+
+.padding-32px {
+    /* Display & box model */
+    padding: 0 32px 32px 32px;
+}
 
 @media only screen and (max-width: 720px) {
     .canvas {
