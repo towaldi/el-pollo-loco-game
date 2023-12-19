@@ -26,6 +26,7 @@ function startGame() {
         // setEndgameStatisticToNull();
         gameSounds();
         initLevel();
+		mobileButtons();
 		document.getElementById('overlay').classList.remove('d-none');
 		document.getElementById('won-screen').classList.add('d-none');
 		document.getElementById('lost-screen').classList.add('d-none');
@@ -324,6 +325,53 @@ window.addEventListener("keyup", (event) => {
 /**
  * Mobile buttons -> touch events
  */
+function mobileButtons() {
+
+	// Left
+	document.getElementById('mobile-btn-move-left').addEventListener('touchstart', (event) => {
+		event.preventDefault();
+		keyboard.left = true;
+	});
+
+	document.getElementById('mobile-btn-move-left').addEventListener('touchend', (event) => {
+		event.preventDefault();
+		keyboard.left = false;
+	});
+
+	// Right
+	document.getElementById('mobile-btn-move-right').addEventListener('touchstart', (event) => {
+		event.preventDefault();
+		keyboard.right = true;
+	});
+
+	document.getElementById('mobile-btn-move-right').addEventListener('touchend', (event) => {
+		event.preventDefault();
+		keyboard.right = false;
+	});
+
+	// Jump
+	document.getElementById('mobile-btn-jump').addEventListener('touchstart', (event) => {
+		event.preventDefault();
+		keyboard.space = true;
+	});
+
+	document.getElementById('mobile-btn-jump').addEventListener('touchend', (event) => {
+		event.preventDefault();
+		keyboard.space = false;
+	});
+
+	// Throw
+	document.getElementById('mobile-btn-throw').addEventListener('touchstart', (event) => {
+		event.preventDefault();
+		keyboard.d = true;
+	});
+
+	document.getElementById('mobile-btn-throw').addEventListener('touchend', (event) => {
+		event.preventDefault();
+		keyboard.d = false;
+	});
+}
+
 
 
 /**
