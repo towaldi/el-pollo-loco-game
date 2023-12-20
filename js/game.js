@@ -134,21 +134,6 @@ function checkKilledChicken() {
 
 
 /**
- * Displays the game statistics.
- * @param {string} id1 - Id of the element to display the number of collected bottles.
- * @param {string} id2 - Id of the element to display the number of thrown bottles.
- * @param {string} id2 - Id of the element to display the number of collected coins.
- * @param {string} id3 - Id of the element to display the number of killed chickens.
- */
-// function showGameStatistic(id1, id2, id3, id4) {
-//     document.getElementById(id1).innerHTML = bottlesCollectedInMenu;
-//     document.getElementById(id2).innerHTML = bottlesThrowedInMenu;
-//     document.getElementById(id3).innerHTML = coinsCollectedInMenu;
-//     document.getElementById(id4).innerHTML = killedChickenInMenu;
-// }
-
-
-/**
  * Gets executed if character's energy = 0 -> game is lost
  */
 
@@ -176,9 +161,7 @@ function stopBackgroundMusic() {
 function showGameLostContainer() {
     setTimeout(() => {
         gameLostSound.play();
-        // showGameStatistic('collected-bottles-ingame', 'throwed-bottles-ingame', 'collected-coins-ingame', 'killed-chicken-ingame');
         document.getElementById('lost-screen').classList.remove('d-none');
-        // document.getElementById('canvas').classList.add('d-none');
     }, 500);
 }
 
@@ -200,9 +183,7 @@ function gameWon() {
 
 function showGameWonContainer() {
     setTimeout(() => {
-        // showGameStatistic('collected-bottles-ingame-win', 'throwed-bottles-ingame-win', 'collected-coins-ingame-win', 'killed-chicken-ingame-win');
         document.getElementById('won-screen').classList.remove('d-none');
-        // document.getElementById('canvas').classList.add('d-none');
     }, 1200);
 }
 
@@ -237,9 +218,11 @@ function closeTextContainer(id1, id2) {
  * @param {string} id2 -> Id of the second container to be displayed
  */
 
-function goToMainMenu(id1, id2) {
+function goToMainMenu(id1, id2, id3) {
     document.getElementById(id1).classList.add('d-none');
-    document.getElementById(id2).classList.remove('d-none');
+	document.getElementById(id2).classList.add('d-none');
+    document.getElementById(id3).classList.remove('d-none');
+	document.getElementById('overlay').classList.add('d-none');
 }
 
 
@@ -323,8 +306,9 @@ window.addEventListener("keyup", (event) => {
 
 
 /**
- * Mobile buttons -> touch events
+ * Event listener for mobile buttons 
  */
+
 function mobileButtons() {
 
 	// Left
