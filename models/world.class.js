@@ -389,8 +389,8 @@ class World {
 
     addBackgroundObjects() {
         this.ctx.translate(this.cameraPosX, 0);
-        this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.backgroundObjects);
+        this.addObjectsToMap(this.level.clouds);
         this.ctx.translate(-this.cameraPosX, 0);
     }
 
