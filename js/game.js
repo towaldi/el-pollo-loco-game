@@ -203,6 +203,13 @@ function goToMainMenu(id1, id2, id3) {
 
 
 /**
+ * Fullscreen
+ */
+
+
+
+
+/**
  * Event listener for keyboard inputs
  * -> Listens for keydown events
  * -> Updates the keyboard object based on the keys that are pressed
