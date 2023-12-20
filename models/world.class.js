@@ -79,34 +79,14 @@ class World {
      * Checks for collisions between the character and chickens
      */
 
-    // checkCollision() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (this.character.isColliding(enemy)) {
-    //             if (this.character.isAboveGround() && !this.character.isHurt()) {
-    //                 this.killChicken(enemy);
-    //                 console.log('chicken is killed!');
-    //             } else if (!this.characterNotVulnerable) {
-    //                 this.characterInvulnerable();
-    //                 console.log('character is invulnerable!');
-    //             } else if (!this.characterNotVulnerable) {
-    //                 this.character.hit();
-    //                 console.log('character is hit!');
-    //                 this.statusBar.setPercentage(this.character.energy);
-    //             }
-    //         }
-    //     });
-    // }
-
     checkCollision() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 if (this.character.isAboveGround() && !this.character.isHurt()) {
                     this.killChicken(enemy);
-                    console.log('chicken is killed!');
                     this.characterInvulnerable();
                 } else if (enemy.energy > 0) {
                     this.character.hit();
-                    console.log('character is hit!');
                     this.statusBar.setPercentage(this.character.energy);
                 }
             }
@@ -473,14 +453,6 @@ class World {
             });
         }
     }
-
-    /* Old version:
-    addObjectsToMap(objects) {
-        objects.forEach((object) => {
-            this.addToMap(object);
-        });
-    }
-    */
 
     
     /**

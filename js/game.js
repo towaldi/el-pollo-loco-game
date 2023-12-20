@@ -189,30 +189,6 @@ function showGameWonContainer() {
 
 
 /**
- * Opens text containers specified by the parameters
- * @param {string} id1 -> Id of the first container to be displayed
- * @param {string} id2 -> Id of the second container to be hidden
- */
-
-function openTextContainer(id1, id2) {
-    document.getElementById(id1).classList.remove('d-none');
-    document.getElementById(id2).classList.add('d-none');
-}
-
-
-/**
- * Closes text containers specified by the parameters
- * @param {string} id1 -> Id of the first container to be hidden
- * @param {string} id2 -> Id of the second container to be displayed
- */
-
-function closeTextContainer(id1, id2) {
-    document.getElementById(id1).classList.add('d-none');
-    document.getElementById(id2).classList.remove('d-none');
-}
-
-
-/**
  * Returns to the main menu (after a win or loss)
  * @param {string} id1 -> Id of the first container to be hidden
  * @param {string} id2 -> Id of the second container to be displayed
@@ -223,19 +199,6 @@ function goToMainMenu(id1, id2, id3) {
 	document.getElementById(id2).classList.add('d-none');
     document.getElementById(id3).classList.remove('d-none');
 	document.getElementById('overlay').classList.add('d-none');
-}
-
-
-/**
- * Restarts the game (after a win or loss) 
- * -> The parameters are defined in the 'index.html' file
- * -> The startGame() function initializes a new game
- * @param {string} id -> Id of the HTML element to be manipulated.
- */
-
-function restartGame(id) {
-    document.getElementById(id).classList.add('d-none');
-    startGame();
 }
 
 
@@ -355,10 +318,3 @@ function mobileButtons() {
 		keyboard.d = false;
 	});
 }
-
-
-
-/**
- * 
- */
-

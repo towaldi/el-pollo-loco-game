@@ -28,6 +28,10 @@ function initLevel() {
         ],
         [
             new Cloud(),
+            new Cloud(),
+            new Cloud(),
+            new Cloud(),
+            new Cloud()
         ],
     
         [
@@ -41,6 +45,7 @@ function initLevel() {
         ],
     
         [
+            new Bottle(),
             new Bottle(),
             new Bottle(),
             new Bottle(),

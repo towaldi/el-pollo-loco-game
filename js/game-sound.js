@@ -91,7 +91,6 @@ function checkGameMusic() {
  */
 
 function soundOff() {
-    console.log('sound off button is clicked!');
     gameMusicOff = true;
     showSoundOffButton();
     allSoundsVolumeOff();
@@ -143,7 +142,6 @@ function allSoundsVolumeOff() {
  */
 
 function soundOn() {
-    console.log('sound on button is clicked!');
     gameMusicOff = false;
     showSoundOnButton();
     allSoundsVolumeOn();

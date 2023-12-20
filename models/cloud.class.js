@@ -1,12 +1,11 @@
 /**
  * Cloud class that extends 'MovableObjects'
- * The class is in the background
+ * -> The class is in the background
  * @extends MovableObject
  */
 
 class Cloud extends MovableObject {
 
-    // posY = 20;
     width = 480;
     height = 240;
 
@@ -21,7 +20,7 @@ class Cloud extends MovableObject {
         super().loadImage('img/5_background/layers/4_clouds/1.png');
         this.posY = 10 + Math.random() * 50;
         this.posX = Math.random() * 2000;
-        // this.speed = 0.05;
+        this.speed = 0.05;
         this.animate();
     }
 
