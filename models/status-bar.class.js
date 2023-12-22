@@ -2,7 +2,6 @@
  * The StatusBar class represents the "health status bar" of the character
  * @extends DrawableObject
  */
-
 class StatusBar extends DrawableObject {
 
     statusbar_images = [
@@ -21,12 +20,10 @@ class StatusBar extends DrawableObject {
      * Initializes the status bar by loading the images
      * -> Sets initial health percentage to 100
      */
-
     constructor() {
         super();
         this.loadImages(this.statusbar_images);
         this.setPercentage(100);
-        // Inside constructor or global in class?
         this.posX = 20;
         this.posY = 10;
         this.width = 180;
@@ -39,7 +36,6 @@ class StatusBar extends DrawableObject {
      * -> Changes images depending on the percentage
      * @param {number} percentage -> Percentage of the player
      */
-
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.statusbar_images[this.resolveImageIndexHealth()];

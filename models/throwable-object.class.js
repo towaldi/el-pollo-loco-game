@@ -2,7 +2,6 @@
  * ThrowableObject class represents the bottle object that the character can trhow
  * @extends MovableObject
  */
-
 class ThrowableObject extends MovableObject {
 
     images_throwing_bottle = [
@@ -28,7 +27,6 @@ class ThrowableObject extends MovableObject {
      * @param {number} posY -> Initial y-coordinate ot the throwable object
      * @param {boolean} characterDirection -> Direction character is facing
      */
-
     constructor(posX, posY, characterDirection) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
         this.loadImages(this.images_throwing_bottle);
@@ -44,7 +42,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Initiates the throwing action for the throwable object
      */
-
     throw() {
         this.speedY = 30;
         this.applyGravityBottle();
@@ -72,7 +69,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Handles the animations and interactions of the throwable object.
      */
-
     bottleAnimation() {
         this.splashOrThrowingAnimation();
         this.updateBottleStrikesEndboss();
@@ -82,7 +78,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Determines whether to play the splash animation or the throwing animation based on the object's position and collision state
      */
-
     splashOrThrowingAnimation() {
         this.splashAnimation = setInterval(() => {
             if (this.posY > 240 || world.bottleStrikesEndboss) {
@@ -97,7 +92,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Updates the world.bottleStrikesEndboss variable after a delay
      */
-
     updateBottleStrikesEndboss() {
         setTimeout(() => {
             world.bottleStrikesEndboss = false;
@@ -108,7 +102,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Plays the splash animation and adjusts the throwable object's properties accordingly
      */
-
     playSplashAnimation() {
         this.playAnimation(this.images_splash_bottle);
         bottleSplashSound.play();
@@ -122,7 +115,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Simulates a splash effect by continuously increasing the throwable object's y position
      */
-    
     splashEffect() {
         setInterval(() => {
             this.posY += 10;
@@ -134,7 +126,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Simulates the deletion of the throwable object by moving it out of the visible area after a delay.
      */
-
     deleteBottle() {
         setTimeout(() => {
             this.posY = 500;

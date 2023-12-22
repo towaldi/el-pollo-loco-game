@@ -2,7 +2,6 @@
  * The level class contains all elements/objects that make up a level
  * -> Each instance of the level class contains all the game objects that are relevant in this level
  */
-
 class Level {
     enemies;
     endboss;

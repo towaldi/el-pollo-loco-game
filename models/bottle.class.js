@@ -2,7 +2,6 @@
  * Bottle class for collectable salsa bottle
  * @extends MovableObject
  */
-
 class Bottle extends MovableObject {
     height = 80;
     width = 80;
@@ -20,7 +19,6 @@ class Bottle extends MovableObject {
      * -> Loads images + sets initial x-coordinate position randomly
      * -> Sets up animation
      */
-
     constructor() {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png');
         this.loadImages(this.images_bottle);
@@ -32,7 +30,6 @@ class Bottle extends MovableObject {
      * Sets up the animation
      * -> Uses 'setStoppableInterval()' to periodically update the bottle's animation (every 0.36 seconds)
      */
-
     collectablesAnimation() {
         setStoppableInterval(() => {
             this.playAnimation(this.images_bottle);

@@ -3,7 +3,6 @@
  * -> Character moves around, jumps and interacts with the other game objects
  * @extends MovableObject
  */
-
 class Character extends MovableObject {
 
     posY = 60;
@@ -77,7 +76,6 @@ class Character extends MovableObject {
 
     world;
     walkingSound = new Audio('audio/walking_on_sand.mp3');
-    //speed = 6;
 
 
     /**
@@ -85,7 +83,6 @@ class Character extends MovableObject {
      * -> Loads image(s) of character in various states (walking. jumping, etc.)
      * -> Applies gravity to the character + starts animation loop for movement
      */
-
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.images_walking);
@@ -103,22 +100,18 @@ class Character extends MovableObject {
      * Controls character movement + animation based on current state
      * -> Updates character's position + applies vertical speed to jumoping
      * -> Adjusts camera position -> focus on character with a slight offset
+     * -> Move right, move left, jumb
      */
-
     animate() {
         setStoppableInterval(() => {
-            // Move right
             if (this.world && this.world.keyboard.right && this.posX < this.world.level.levelEndX) {
                 this.moveRight();
             }
-            // move left
             if (this.world && this.world.keyboard.left && this.posX > 0) {
                 this.moveLeft();
             }
-            // Jump
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
                 this.speedPosY = 30;
-                // this.jump();
             }
             this.world.cameraPosX = -this.posX + 80;
 
@@ -130,7 +123,6 @@ class Character extends MovableObject {
          * -> Checks if character is in various states like dead, hurt, jumping, walking, standing or idle state -> triggers corresponding animation
          * -> Interval 100ms -> smooth animations
          */
-        
 		setStoppableInterval(() => {
             if (this.isDead()) {
                 this.deathAnimation();
@@ -156,7 +148,6 @@ class Character extends MovableObject {
      * -> Calls 'gameLost' function
      * -> Stops the game
      */
-
     deathAnimation() {
         this.playAnimation(this.images_dead);
         characterDeadSound.play();
@@ -169,7 +160,6 @@ class Character extends MovableObject {
     /**
      * Sets timeout to stop game + reset variable 'arrivedEndboss' = false (after short delay)
      */
-
     stopGameGeneral() {
         setTimeout(() => {
             stopAllIntervals();
@@ -183,7 +173,6 @@ class Character extends MovableObject {
      * -> Plays hurt sound
      * -> Resets 'longIdleState'
      */
-
     hurtAnimation() {
         this.playAnimation(this.images_hurt);
         characterHurtSound.play();
@@ -196,7 +185,6 @@ class Character extends MovableObject {
      * -> Plays jump sound
      * -> Resets 'longIdleState'
      */
-
     jumpAnimation() {
         this.playAnimation(this.images_jumping);
         characterJumpSound.play();
@@ -208,7 +196,6 @@ class Character extends MovableObject {
      * Checks if character is moving to left or right based on the keyboard input
      * @returns {boolean} -> 'true' = character is moving, 'false' = not moving
      */
-
     isWalking() {
         return this.world.keyboard.right || this.world.keyboard.left;
     }
@@ -218,7 +205,6 @@ class Character extends MovableObject {
      * Plays walking animation
      * -> Resets 'longIdleState'
      */
-
     walkingAnimation() {
         this.playAnimation(this.images_walking);
         this.longIdleState = 0;
@@ -239,7 +225,6 @@ class Character extends MovableObject {
      * Plays idle animation of the character
      * -> Increase counter of 'longIdleState' to track the duration of the state
      */
-
     idleAnimation() {
         this.playAnimation(this.images_idle);
         this.longIdleState++;
@@ -250,7 +235,6 @@ class Character extends MovableObject {
      * Plays long idle animation of the character
      * -> Used when character remains idle for an extende period of time
      */
-
     longIdleAnimation() {
         this.playAnimation(this.images_long_idle);
     }

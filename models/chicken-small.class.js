@@ -2,7 +2,6 @@
  * Small chicken class that extends 'MovableObjects'
  * @extends MovableObject
  */
-
 class SmallChicken extends MovableObject {
 
     posY = 380;
@@ -26,7 +25,6 @@ class SmallChicken extends MovableObject {
      * -> Sets speed randomly between 0.1 and 0.5
      * -> Sets up 'chickenAnimation()'
      */
-
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
         this.loadImages(this.images_walking);

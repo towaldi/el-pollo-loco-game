@@ -3,7 +3,6 @@
  * Each object has 'width' and 'height' -> placed on a specific location on the canvas
  * @extends MovableObject
  */
-
 class BackgroundObject extends MovableObject {
 
     width = 720;
@@ -17,7 +16,6 @@ class BackgroundObject extends MovableObject {
      * @param {string} imagePath -> path background image
      * @param {number} posX -> Initial x-coordinate background object
      */
-
     constructor(imagePath, posX) {
         super().loadImage(imagePath);
 

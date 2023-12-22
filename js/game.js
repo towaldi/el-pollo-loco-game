@@ -18,7 +18,6 @@ let killedChickenInMenu = 0;
  * Initializes the game
  * -> Displaying loading screen, drawing world, display overly (mobile buttons)
  */
-
 function startGame() {
 	switchContainer('start-screen', 'canvas');
 	setTimeout(() => {
@@ -39,7 +38,6 @@ function startGame() {
 /**
  * Shows keys in start screen
  */
-
 function showKeysManual() {
 	document.getElementById('manual-screen').classList.remove('d-none');
 }
@@ -48,7 +46,6 @@ function showKeysManual() {
 /**
  * Shows start screen again (if key manual is open)
  */
-
 function showStartScreen() {
 	document.getElementById('manual-screen').classList.add('d-none');
 }
@@ -59,7 +56,6 @@ function showStartScreen() {
  * @param {function} fn -> Function called at regular intervals
  * @param {number} time -> Time in ms (milliseconds) between each call of the function
  */
-
 function setStoppableInterval(fn, time) {
     let id = setInterval(fn, time);
     intervalIds.push(id);
@@ -68,7 +64,6 @@ function setStoppableInterval(fn, time) {
 /**
  * Stops all intervals that are contolling the game
  */
-
 function stopAllIntervals() {
 	intervalIds.forEach(clearInterval);
 }
@@ -88,7 +83,6 @@ function switchContainer(id1, id2) {
 /**
  * Resets the game statistics.
  */
-
 function setEndgameStatisticToNull() {
     bottlesCollectedInMenu = 0;
     bottlesThrowedInMenu = 0;
@@ -100,7 +94,6 @@ function setEndgameStatisticToNull() {
 /**
  * Updates the count of bottles collected in the game.
  */
-
 function checkCollectedBottles() {
     bottlesCollectedInMenu++;
 }
@@ -109,7 +102,6 @@ function checkCollectedBottles() {
 /**
  * Updates the count of bottles thrown in the game.
  */
-
 function checkThrowedBottles() {
     bottlesThrowedInMenu++;
 }
@@ -118,7 +110,6 @@ function checkThrowedBottles() {
 /**
  * Updates the count of coins collected in the game.
  */
-
 function checkCollectedCoins() {
     coinsCollectedInMenu++;
 }
@@ -127,7 +118,6 @@ function checkCollectedCoins() {
 /**
  * Updates the count of chickens killed in the game.
  */
-
 function checkKilledChicken() {
     killedChickenInMenu++;
 }
@@ -136,7 +126,6 @@ function checkKilledChicken() {
 /**
  * Gets executed if character's energy = 0 -> game is lost
  */
-
 function gameLost() {
 	stopBackgroundMusic();
 	showGameLostContainer();
@@ -146,7 +135,6 @@ function gameLost() {
 /**
  * Pauses background music after game was won or lost
  */
-
 function stopBackgroundMusic() {
 	gameBackgroundMusic.pause();
 	gameEndbossMusic.pause();
@@ -157,7 +145,6 @@ function stopBackgroundMusic() {
  * Displayed if game lost (screen)
  * -> After 500ms.
  */
-
 function showGameLostContainer() {
     setTimeout(() => {
         gameLostSound.play();
@@ -169,7 +156,6 @@ function showGameLostContainer() {
 /**
  * Gets executed if endboss's energy = 0 -> game is won
  */
-
 function gameWon() {
     stopBackgroundMusic();
     showGameWonContainer();
@@ -180,7 +166,6 @@ function gameWon() {
  * Displayed if game won (screen)
  * -> After 1200ms.
  */
-
 function showGameWonContainer() {
     setTimeout(() => {
         document.getElementById('won-screen').classList.remove('d-none');
@@ -193,7 +178,6 @@ function showGameWonContainer() {
  * @param {string} id1 -> Id of the first container to be hidden
  * @param {string} id2 -> Id of the second container to be displayed
  */
-
 function goToMainMenu(id1, id2, id3) {
     document.getElementById(id1).classList.add('d-none');
 	document.getElementById(id2).classList.add('d-none');
@@ -203,18 +187,10 @@ function goToMainMenu(id1, id2, id3) {
 
 
 /**
- * Fullscreen
- */
-
-
-
-
-/**
  * Event listener for keyboard inputs
  * -> Listens for keydown events
  * -> Updates the keyboard object based on the keys that are pressed
  */
-
 window.addEventListener("keydown", (event) => {
     if (event.keyCode == 37) {
 		keyboard.left = true;
@@ -247,7 +223,6 @@ window.addEventListener("keydown", (event) => {
  * -> Listens for keyup events
  * -> Updates the keyboard object based on the keys that are released
  */
-
 window.addEventListener("keyup", (event) => {
 	if (event.keyCode == 37) {
 		keyboard.left = false;
@@ -276,12 +251,10 @@ window.addEventListener("keyup", (event) => {
 
 
 /**
- * Event listener for mobile buttons 
+ * Event listener for mobile buttons
+ * -> Left, right, jump, throw
  */
-
 function mobileButtons() {
-
-	// Left
 	document.getElementById('mobile-btn-move-left').addEventListener('touchstart', (event) => {
 		event.preventDefault();
 		keyboard.left = true;
@@ -292,7 +265,6 @@ function mobileButtons() {
 		keyboard.left = false;
 	});
 
-	// Right
 	document.getElementById('mobile-btn-move-right').addEventListener('touchstart', (event) => {
 		event.preventDefault();
 		keyboard.right = true;
@@ -303,7 +275,6 @@ function mobileButtons() {
 		keyboard.right = false;
 	});
 
-	// Jump
 	document.getElementById('mobile-btn-jump').addEventListener('touchstart', (event) => {
 		event.preventDefault();
 		keyboard.space = true;
@@ -314,7 +285,6 @@ function mobileButtons() {
 		keyboard.space = false;
 	});
 
-	// Throw
 	document.getElementById('mobile-btn-throw').addEventListener('touchstart', (event) => {
 		event.preventDefault();
 		keyboard.d = true;

@@ -1,7 +1,6 @@
 /**
  * Sounds
  */
-
 characterJumpSound = new Audio('./audio/character_jump_sound.mp3');
 characterDeadSound = new Audio('./audio/character_dead_sound.mp3');
 characterHurtSound = new Audio('./audio/character_jump_sound.mp3');
@@ -28,7 +27,6 @@ gameLostSound = new Audio('./audio/game_won_sound.mp3');
 /**
  * Checking if audioelements are loaded correctly
  */
-
 characterDeadSound.load();
 characterDeadSound.load();
 characterHurtSound.load();
@@ -45,7 +43,6 @@ gameEndbossMusic.load();
 gameWonSound.load();
 gameLostSound.load();
 
-
 let gameMusicOff = false;
 
 
@@ -53,7 +50,6 @@ let gameMusicOff = false;
  * Resets 'game' + 'endboss' music at tht start of the game
  * -> Checks whether music is on of off -> on: music on loop
  */
-
 function gameSounds() {
     resetSoundsToBegin();
     checkGameMusic();
@@ -75,7 +71,6 @@ function resetSoundsToBegin() {
  * Checks wherther music is on (true) or off (false) based on global variable 'gameMusicOff'
  * -> If on volume of sounds is 1, if off valome is 0
  */
-
 function checkGameMusic() {
     if (!gameMusicOff) {
         allSoundsVolumeOn();
@@ -89,7 +84,6 @@ function checkGameMusic() {
  * Sets globale variable 'gameMusicOff' to true
  * -> Display sound off button (Volume of all sounds = 0)
  */
-
 function soundOff() {
     gameMusicOff = true;
     showSoundOffButton();
@@ -100,7 +94,6 @@ function soundOff() {
 /**
  * Function for "sound off" button
  */
-
 function showSoundOffButton() {
     document.getElementById('sound-off').classList.add('d-none');
     document.getElementById('sound-on').classList.remove('d-none');
@@ -110,7 +103,6 @@ function showSoundOffButton() {
 /**
  * Sets the volume of all game sounds to 0
  */
-
 function allSoundsVolumeOff() {
     characterJumpSound.volume = 0;
     characterDeadSound.volume = 0;
@@ -140,7 +132,6 @@ function allSoundsVolumeOff() {
  * Sets globale variable 'gameMusicOff' to false
  * -> Display sound on button (Volume of all sounds = 1)
  */
-
 function soundOn() {
     gameMusicOff = false;
     showSoundOnButton();
@@ -151,7 +142,6 @@ function soundOn() {
 /**
  * Function for "sound on" button
  */
-
 function showSoundOnButton() {
     document.getElementById('sound-off').classList.remove('d-none');
     document.getElementById('sound-on').classList.add('d-none');
@@ -161,7 +151,6 @@ function showSoundOnButton() {
 /**
  * Sets the volume of all game sounds to 1
  */
-
 function allSoundsVolumeOn() {
     characterJumpSound.volume = 1;
     characterDeadSound.volume = 1;
@@ -191,7 +180,6 @@ function allSoundsVolumeOn() {
  * Function mutes all game sound except for 'gameWonSound' and 'gameLostSound'
  * -> After 300 ms
  */
-
 function setGameSoundsToNull() {
     setTimeout(() => {
         characterJumpSound.value = 1;

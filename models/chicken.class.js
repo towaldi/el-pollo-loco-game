@@ -2,7 +2,6 @@
  * Chicken class that extends 'MovableObjects'
  * @extends MovableObject
  */
-
 class Chicken extends MovableObject {
     
     posY = 350;

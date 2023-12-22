@@ -2,7 +2,6 @@
  * MovableObject class represents the movable objects
  * @extends DrawableObject
  */
-
 class MovableObject extends DrawableObject {
 
     speed = 0.1;
@@ -23,7 +22,6 @@ class MovableObject extends DrawableObject {
     /**
      * Applies gravity to the bottle object
      */
-
     applyGravityBottle() {
         setStoppableInterval(() => {
             if (this.isAboveGround() || this.speedPosY > 0) {
@@ -38,7 +36,6 @@ class MovableObject extends DrawableObject {
      * Applies gravity to the character
      * -> Updating the vertical position based on current speed and acceleration
      */
-
     applyGravityCharacter() {
         setStoppableInterval(() => {
             if (this.isAboveGround() || this.speedPosY > 0) {
@@ -55,7 +52,6 @@ class MovableObject extends DrawableObject {
      * Checks if object is above ground
      * @returns {boolean} -> 'true' above ground, 'false' under ground
      */
-
     isAboveGround() {
         if (this instanceof ThrowableObject && this.posY < 300) {
             return true;
@@ -69,7 +65,6 @@ class MovableObject extends DrawableObject {
      * Plays animation by upodating the image of the object
      * @param {Array} images -> Array of image paths
      */
-
     playAnimation(images) {
         let i = this.currentImage % images.length; 
 		let path = images[i];
@@ -82,7 +77,6 @@ class MovableObject extends DrawableObject {
      * Moves the object to the right 
      * -> updating x coordinate based on speed property
      */
-
     moveRight() {
         this.posX += this.speed;
         this.otherDirection = false;
@@ -93,7 +87,6 @@ class MovableObject extends DrawableObject {
      * Moves the object to the left
      * -> updating x coordinate based on speed property
      */
-
     moveLeft() {
         this.posX -= this.speed;
         this.otherDirection = true;
@@ -105,7 +98,6 @@ class MovableObject extends DrawableObject {
      * @param {MovableObject} movableObject -> movable object
      * @returns {boolean} -> 'true'
      */
-
     isColliding(movableObject) {
         return (
             this.posX + this.width - this.offset.right > movableObject.posX + movableObject.offset.left &&
@@ -119,7 +111,6 @@ class MovableObject extends DrawableObject {
     /**
      * Decreases the characters energy by 0.5 
      */
-
     hit() {
 		this.energy -= 0.5;
 		if (this.energy < 0) {
@@ -133,7 +124,6 @@ class MovableObject extends DrawableObject {
     /**
      * Decreases the characters energy by 10 when being hit by endboss
      */
-
     hittedByEndboss() {
         this.energy -= 10;
 		if (this.energy < 0) {
@@ -147,7 +137,6 @@ class MovableObject extends DrawableObject {
     /**
      * Decreases the endbosses energy by 10 when hitted by bottle
      */
-
     hittedByBottle() {
         this.energy -= 10;
 		if (this.energy < 0) {
@@ -162,7 +151,6 @@ class MovableObject extends DrawableObject {
      * Checks if the character is hurt (state)
      * @returns {boolean} -> 'true' = hurt, 'false' = not hurt
      */
-
     isHurt() {
         // Difference in ms
         let timepassed = new Date().getTime() - this.lastHit;
@@ -176,7 +164,6 @@ class MovableObject extends DrawableObject {
      * Checks if the endboss is hurt (state)
      * @returns {boolean} -> 'true' = hurt, 'false' = not hurt
      */
-    
     endbossIsHurt() {
         // Difference in ms
         let timepassed = new Date().getTime() - this.lastHit;
@@ -190,7 +177,6 @@ class MovableObject extends DrawableObject {
      * Checks if objects (character, etc.) are dead
      * @returns {boolean} -> 'true' = dead, 'false' = not dead
      */
-
     isDead() {
         return this.energy == 0;
     }
@@ -199,7 +185,6 @@ class MovableObject extends DrawableObject {
     /**
      * Handles the animations for the chicken object.
      */
-
     chickenAnimation() {
         this.movingLeft();
         this.checkingDeath();
@@ -209,7 +194,6 @@ class MovableObject extends DrawableObject {
     /**
      * Sets up an interval that triggers the chicken to move to the left repeatedly.
      */
-
     movingLeft() {
         this.walkingLeft = setInterval(() => {
             this.moveLeft();
@@ -221,7 +205,6 @@ class MovableObject extends DrawableObject {
     /**
      * Sets up an interval that checks if the chicken is dead.
      */
-
     checkingDeath() {
         this.death = setInterval(() => {
             if (this.isDead()) {
@@ -237,7 +220,6 @@ class MovableObject extends DrawableObject {
     /**
      * Called when the chicken is dead. It clears the intervals for walking left and checking death after a delay of 100 milliseconds.
      */
-
     deadChicken() {
         setTimeout(() => {
             clearInterval(this.walkingLeft);

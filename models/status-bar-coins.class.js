@@ -2,7 +2,6 @@
  * CoinBar class represents the status bar of the coin object
  * @extends StatusBar
  */
-
 class CoinBar extends StatusBar {
 
     statusbar_images = [
@@ -22,7 +21,6 @@ class CoinBar extends StatusBar {
      * -> Loads images
      * -> Sets initial collected count to 0
      */
-
     constructor() {
         super();
         this.loadImages(this.statusbar_images);
@@ -39,7 +37,6 @@ class CoinBar extends StatusBar {
      * -> Changes displayed image according to collected amount
      * @param {number} collected -> Amount of coins
      */
-
     setCollected(collected) {
         this.collected = collected;
         let path = this.statusbar_images[this.resolveImageIndexCollectableObjects()];

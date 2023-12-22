@@ -2,7 +2,6 @@
  * Coin class for collectable coins
  * @extends MovableObject
  */
-
 class Coin extends MovableObject {
     height = 100;
     width = 100;
@@ -20,7 +19,6 @@ class Coin extends MovableObject {
      * -> Loads image + sets initial x-cooridnate randomly
      * -> Loads 'collectablesAnimation()'
      */
-
     constructor() {
         super().loadImage('img/8_coin/coin_1.png');
         this.loadImages(this.images_coin);
@@ -34,7 +32,6 @@ class Coin extends MovableObject {
      * Sets up the animation
      * -> Uses 'setStoppableInterval()' to periodically update the coin's animation (every 0.24 seconds)
      */
-
     collectablesAnimation() {
         setStoppableInterval(() => {
             this.playAnimation(this.images_coin);

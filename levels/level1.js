@@ -1,7 +1,6 @@
 /**
  * 'level1.js' defines that are visibile in the game
  */
-
 let level1;
 
 
@@ -10,7 +9,6 @@ let level1;
  * -> Creates 8 chicken, 1 end boss, background objects (clouds), 6 coins, 7 bottles and the "landscape"
  * -> Sets up game by initializing the world with a set of predefined objects
  */
-
 function initLevel() {
     level1 = new Level(
         [
