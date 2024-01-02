@@ -256,42 +256,58 @@ window.addEventListener("keyup", (event) => {
  */
 function mobileButtons() {
 	document.getElementById('mobile-btn-move-left').addEventListener('touchstart', (event) => {
-		event.preventDefault();
-		keyboard.left = true;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.left = true;
+		}
 	});
 
 	document.getElementById('mobile-btn-move-left').addEventListener('touchend', (event) => {
-		event.preventDefault();
-		keyboard.left = false;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.left = false;
+		}
 	});
 
 	document.getElementById('mobile-btn-move-right').addEventListener('touchstart', (event) => {
-		event.preventDefault();
-		keyboard.right = true;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.right = true;
+		}
 	});
 
 	document.getElementById('mobile-btn-move-right').addEventListener('touchend', (event) => {
-		event.preventDefault();
-		keyboard.right = false;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.right = false;
+		}
 	});
 
 	document.getElementById('mobile-btn-jump').addEventListener('touchstart', (event) => {
-		event.preventDefault();
-		keyboard.space = true;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.space = true;
+		}
 	});
 
 	document.getElementById('mobile-btn-jump').addEventListener('touchend', (event) => {
-		event.preventDefault();
-		keyboard.space = false;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.space = false;
+		}
 	});
 
 	document.getElementById('mobile-btn-throw').addEventListener('touchstart', (event) => {
-		event.preventDefault();
-		keyboard.d = true;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.d = true;
+		}
 	});
 
 	document.getElementById('mobile-btn-throw').addEventListener('touchend', (event) => {
-		event.preventDefault();
-		keyboard.d = false;
+		if (event.cancelable) {
+			event.preventDefault();
+			keyboard.d = false;
+		}
 	});
 }
