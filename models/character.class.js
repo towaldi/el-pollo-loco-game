@@ -144,7 +144,7 @@ class Character extends MovableObject {
             } else {
                 this.longIdleAnimation();
             }
-		}, 1000 / 24);
+		}, 1000 / 12);
 	}
 
 
