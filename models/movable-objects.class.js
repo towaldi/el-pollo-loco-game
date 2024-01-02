@@ -135,10 +135,10 @@ class MovableObject extends DrawableObject {
 
 
     /**
-     * Decreases the endbosses energy by 10 when hitted by bottle
+     * Decreases the endbosses energy by 20 when hitted by bottle
      */
     hittedByBottle() {
-        this.energy -= 10;
+        this.energy -= 20;
 		if (this.energy < 0) {
 			this.energy = 0;
 		} else {
