@@ -307,7 +307,7 @@ function mobileButtons() {
 	document.getElementById('mobile-btn-throw').addEventListener('touchend', (event) => {
 		if (event.cancelable) {
 			event.preventDefault();
-			keyboard.d = false;
+		keyboard.d = false;
 		}
 	});
 }
