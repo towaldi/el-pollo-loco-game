@@ -120,6 +120,7 @@ class Character extends MovableObject {
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
                 this.speedPosY = 30;
                 this.currentImage = 0;
+                characterJumpSound.play();
             }
             this.world.cameraPosX = -this.posX + 80;
 		}, 1000 / 24);
@@ -186,20 +187,20 @@ class Character extends MovableObject {
         this.longIdleState = 0;
     }
 
-
     /**
-     * Jump animation of character
-     * -> Plays jump sound
-     * -> Resets 'longIdleState'
-     */
+     * Plays a jumping animation based on the object's state.
+     * Adjusts image index and plays animation
+     * * -> Resets 'longIdleState'
+    */
     jumpAnimation() {
         if (this.speedPosY > 0) {
-            this.currentImage = Math.min(this.currentImage, this.images_jumping.length - 1);
-        } else {
-            this.currentImage = Math.min(this.currentImage, this.images_jumping.length + this.images_idle.length - 1);
+            if (this.currentImage > 5) {
+                this.currentImage = 5;
+            } else if (this.currentImage > this.images_jumping.length) {
+                this.currentImage = this.images_jumping - 1;
+            }
         }
-        // this.playAnimation(this.images_jumping);
-        characterJumpSound.play();
+        this.playAnimation(this.images_jumping);
         this.longIdleState = 0;
     }
 

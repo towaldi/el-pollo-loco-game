@@ -191,3 +191,15 @@ function init() {
     //         }
     //     });
     // }
+
+
+// Line 195
+    // jumpAnimation() {
+    //     if (this.speedPosY > 0) {
+    //         this.currentImage = Math.min(this.currentImage, this.images_jumping.length - 1);
+    //     } else {
+    //         this.currentImage = Math.min(this.currentImage, this.images_jumping.length + this.images_idle.length - 1);
+    //     }
+    //     this.playAnimation(this.images_jumping);
+    //     this.longIdleState = 0;
+    // }
