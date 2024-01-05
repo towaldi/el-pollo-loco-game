@@ -112,7 +112,7 @@ class MovableObject extends DrawableObject {
      * Decreases the characters energy by 0.5 
      */
     hit() {
-		this.energy -= 0.5;
+		this.energy -= 1;
 		if (this.energy < 0) {
 			this.energy = 0;
 		} else {
