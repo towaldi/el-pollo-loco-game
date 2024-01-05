@@ -119,9 +119,9 @@ class Character extends MovableObject {
             }
             if (this.world && this.world.keyboard.space && !this.isAboveGround()) {
                 this.speedPosY = 30;
+                this.currentImage = 0;
             }
             this.world.cameraPosX = -this.posX + 80;
-
 		}, 1000 / 24);
 
 
@@ -193,7 +193,12 @@ class Character extends MovableObject {
      * -> Resets 'longIdleState'
      */
     jumpAnimation() {
-        this.playAnimation(this.images_jumping);
+        if (this.speedPosY > 0) {
+            this.currentImage = Math.min(this.currentImage, this.images_jumping.length - 1);
+        } else {
+            this.currentImage = Math.min(this.currentImage, this.images_jumping.length + this.images_idle.length - 1);
+        }
+        // this.playAnimation(this.images_jumping);
         characterJumpSound.play();
         this.longIdleState = 0;
     }
@@ -222,7 +227,6 @@ class Character extends MovableObject {
      * Checks if character is standing -> comparing 'longIdleState' against threshold
      * @returns {boolean} -> 'true' = character is standing, 'false' = not standing
      */
-
     isStanding() {
         return this.longIdleState < 30;
     }
